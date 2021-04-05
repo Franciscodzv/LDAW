@@ -1,0 +1,14 @@
+body{
+    background-color: gray;
+}
+
+.card{
+    background-color: lightgray;
+    
+    margin: 3px;
+    
+}
+.navbar-brand {
+   color:white; 
+   font-size: 40px;
+}
