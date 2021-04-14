@@ -14,8 +14,20 @@ class CreateReviewsTable extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            
+            $table->text('descripcion');
+            
+            $table->foreignId('id_usuario')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreignId('id_titulo')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->timestamps('fecha');
         });
     }
 

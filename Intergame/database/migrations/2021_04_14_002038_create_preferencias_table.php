@@ -14,8 +14,17 @@ class CreatePreferenciasTable extends Migration
     public function up()
     {
         Schema::create('preferencias', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->foreignId('id_titulo')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreignId('id_usuario')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            //$table->timestamps();
         });
     }
 

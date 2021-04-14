@@ -14,8 +14,17 @@ class CreateCategoriaTitulosTable extends Migration
     public function up()
     {
         Schema::create('categoria__titulos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            
+            $table->foreignId("id_categoria")
+            ->constraint()
+            ->onUpdate("cascade")
+            ->onDelete("cascade");
+
+            $table->foreignId("id_titulo")
+            ->constraint()
+            ->onUpdate("cascade")
+            ->onDelete("cascade");
+            //$table->timestamps();
         });
     }
 

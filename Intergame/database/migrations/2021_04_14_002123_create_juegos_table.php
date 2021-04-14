@@ -14,8 +14,18 @@ class CreateJuegosTable extends Migration
     public function up()
     {
         Schema::create('juegos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id_juego');
+            $table->text('condicion');
+            $table->foreignId('id_titulo')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreignId('id_usuario')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            //$table->timestamps();
         });
     }
 

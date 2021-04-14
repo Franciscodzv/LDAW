@@ -14,8 +14,11 @@ class CreateTitulosTable extends Migration
     public function up()
     {
         Schema::create('titulos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id("id_titulo");
+            $table->string("nombre");
+            $table->text("descripcion");
+            $table->string("imagen");
+            //$table->timestamps();
         });
     }
 
