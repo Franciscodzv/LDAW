@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOfertasTable extends Migration
+class Preferences extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,17 @@ class CreateOfertasTable extends Migration
      */
     public function up()
     {
-        Schema::create('ofertas', function (Blueprint $table) {
-            $table->id("id_oferta");
-            $table->text("comentario");
-
-            $table->foreignId("id_juegoPoseido")->references('id_juego')->on('juego')
-            ->constrained()
-            ->onUpdate("cascade")
-            ->onDelete("cascade");
-
-            $table->foreignId("id_juegoOfertado")->references('id_juego')->on('juego')
+        Schema::create('preferences', function (Blueprint $table) {
+            $table->foreignId('id_title')->references('id')->on('titles')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
+
+            $table->foreignId('id_user')->references('id')->on('users')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
             //$table->timestamps();
         });
     }
@@ -37,6 +35,6 @@ class CreateOfertasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ofertas');
+        Schema::dropIfExists('preferences');
     }
 }

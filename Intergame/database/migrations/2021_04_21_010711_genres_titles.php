@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriaTitulosTable extends Migration
+class GenresTitles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateCategoriaTitulosTable extends Migration
      */
     public function up()
     {
-        Schema::create('categoria__titulos', function (Blueprint $table) {
+        Schema::create('genres_titles', function (Blueprint $table) {
             
-            $table->foreignId("id_categoria")
+            $table->foreignId('id_genre')->references('id')->on('genres')
             ->constraint()
             ->onUpdate("cascade")
             ->onDelete("cascade");
 
-            $table->foreignId("id_titulo")
+            $table->foreignId('id_title')->references('id')->on('titles')
             ->constraint()
             ->onUpdate("cascade")
             ->onDelete("cascade");
@@ -35,6 +35,6 @@ class CreateCategoriaTitulosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categoria__titulos');
+        Schema::dropIfExists('genres_titles');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTitulosTable extends Migration
+class Genres extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateTitulosTable extends Migration
      */
     public function up()
     {
-        Schema::create('titulos', function (Blueprint $table) {
-            $table->id("id_titulo");
-            $table->string("nombre");
-            $table->text("descripcion");
-            $table->string("imagen");
+        Schema::create('genres', function (Blueprint $table) {
+            $table->id('id');
+            $table->string('name');
             //$table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateTitulosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('titulos');
+        Schema::dropIfExists('genres');
     }
 }
