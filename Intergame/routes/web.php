@@ -14,10 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+    return view('auth.login');
+});//->name('index');
 
 Route::get('/Integrantes', function () {
     return view('integrantes');
+});
+
+
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/home', function () {
+    return view('home');
+});//->middleware('auth');
+
+Route::group(['middleware' => 'auth'],  function () {
+    return view('/home');
+    //Route::get('/', [JornadaController::class, 'index'])->name('home');
 });
 
