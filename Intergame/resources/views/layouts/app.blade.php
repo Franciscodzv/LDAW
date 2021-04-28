@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/8b8c378df2.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
@@ -31,13 +33,20 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
+                  
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto d-flex">
+                        <li class="pr-4 ">
+                            <button type="button" class="btn btn-secondary" >REGISTRAR JUEGO</button>
+                        </li>
+                        <li class="pr-4"> 
+                            <button type="button" class="btn btn-info " style="color:white;" >MIS JUEGOS</button>
+                        </li>
+                        <li class="pr-4 d-flex flex-row align-items-center ">
+                            <i class="far fa-bell " style="font-size:20px;"></i>
+                        </li>
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -72,9 +81,34 @@
                         @endguest
                     </ul>
                 </div>
+
+
+            </div>
+        </nav>
+        <nav class="navbar  mt-5">
+            <div class="container-fluid justify-content-center ">
+                <form class="d-flex">
+                <input class="form-control form-control-lg  col-sm-12 me-2" type="search" placeholder="Mario Bros..." aria-label="Search">
+                <button class="btn btn-success ml-4 btn-lg" type="submit">Buscar</button>
+                </form>
             </div>
         </nav>
 
+
+    <div class="container">
+        <div class="row pt-5 flex">
+
+        
+            <div class="col-4">
+                <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2020/10/halo-5-2111873.jpg?itok=nBQ5jpKU" class="w-100" alt="...">
+                <div class="card-body ">
+                    <p class="card-text text-center ">Halo 5: Guardians</p>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+        
         <main class="py-4">
             @yield('content')
         </main>
