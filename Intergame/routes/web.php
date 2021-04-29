@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
-});//->name('index');
+    return view('home');
+})->name('index');
 
 Route::get('/Integrantes', function () {
     return view('integrantes');
@@ -33,5 +33,9 @@ Route::get('/home', function () {
 Route::group(['middleware' => 'auth'],  function () {
     return view('/home');
     //Route::get('/', [JornadaController::class, 'index'])->name('home');
+});
+
+Route::get('/registrarJuego', function(){
+    return view('game.registrarJuego');
 });
 
