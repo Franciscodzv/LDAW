@@ -39,3 +39,9 @@ Route::get('/registrarJuego', function(){
     return view('game.registrarJuego');
 });
 
+Route::get('/registrarTitulosInteres', function(){
+    return view('game.titulosInteres');
+});
+Route::get('/escribirResenia', function(){
+    return view('game.resenia');
+});
