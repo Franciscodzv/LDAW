@@ -48,3 +48,9 @@ Route::get('/escribirResenia', function(){
 Route::get('/registrarTitulo', function(){
     return view('game.registrarTitulo');
 });
+Route::get('/editarTitulos', function(){
+    return view('game.editarTitulos');
+});
+Route::get('/altaAdmin', function(){
+    return view('game.altaAdministrador');
+});
