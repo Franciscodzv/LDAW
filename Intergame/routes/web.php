@@ -14,10 +14,51 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 })->name('index');
 
 Route::get('/Integrantes', function () {
     return view('integrantes');
 });
 
+
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/home', function () {
+    return view('home');
+});//->middleware('auth');
+
+Route::group(['middleware' => 'auth'],  function () {
+    return view('/home');
+    //Route::get('/', [JornadaController::class, 'index'])->name('home');
+});
+
+Route::get('/registrarTitulo', function(){
+    return view('game.registrarJuego');
+});
+
+Route::get('/registrarTitulosInteres', function(){
+    return view('game.titulosInteres');
+});
+Route::get('/escribirReview', function(){
+    return view('game.resenia');
+});
+Route::get('/registrarJuego', function(){
+    return view('game.registrarTitulo');
+});
+Route::get('/editarTitulos', function(){
+    return view('game.editarTitulos');
+});
+Route::get('/altaAdmin', function(){
+    return view('game.altaAdministrador');
+});
+
+Route::get('/oferta',function(){
+    return view('game.oferta');
+});
+
+Route::get('/notificaciones',function(){
+    return view('game.notificaciones');
+});
