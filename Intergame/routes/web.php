@@ -35,17 +35,17 @@ Route::group(['middleware' => 'auth'],  function () {
     //Route::get('/', [JornadaController::class, 'index'])->name('home');
 });
 
-Route::get('/registrarJuego', function(){
+Route::get('/registrarTitulo', function(){
     return view('game.registrarJuego');
 });
 
 Route::get('/registrarTitulosInteres', function(){
     return view('game.titulosInteres');
 });
-Route::get('/escribirResenia', function(){
+Route::get('/escribirReview', function(){
     return view('game.resenia');
 });
-Route::get('/registrarTitulo', function(){
+Route::get('/registrarJuego', function(){
     return view('game.registrarTitulo');
 });
 Route::get('/editarTitulos', function(){
@@ -53,4 +53,12 @@ Route::get('/editarTitulos', function(){
 });
 Route::get('/altaAdmin', function(){
     return view('game.altaAdministrador');
+});
+
+Route::get('/oferta',function(){
+    return view('game.oferta');
+});
+
+Route::get('/notificaciones',function(){
+    return view('game.notificaciones');
 });

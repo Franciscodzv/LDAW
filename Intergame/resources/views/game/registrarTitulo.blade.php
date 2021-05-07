@@ -7,7 +7,7 @@
     <div class="col-8 offset-2">
 
     <div class="row">
-     <h1>Registrar Titulo</h1> 
+     <h1>Usuario Registra Juego</h1> 
     </div>
 
     <div class="form-group row pt-2">
@@ -20,41 +20,7 @@
             </span>
           @endif
       </div>
-
-    <div class="form-group row">
-        <label class=" col-form-label" for="descripcionJuego">Categoria:</label>
-      </div>
-
-      <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-      <label class="form-check-label" for="inlineCheckbox2">the legend of zelda</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-      <label class="form-check-label" for="inlineCheckbox1">mario bros</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-      <label class="form-check-label" for="inlineCheckbox2">the legend of zelda</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-      <label class="form-check-label" for="inlineCheckbox1">mario bros</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-      <label class="form-check-label" for="inlineCheckbox2">the legend of zelda</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-      <label class="form-check-label" for="inlineCheckbox1">mario bros</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-      <label class="form-check-label" for="inlineCheckbox2">the legend of zelda</label>
-    </div>
         
-
     <div class="row">
         <label class="col-form-label" for="imagenJuego">Imagen del Juego</label>
         <input type="file" class="form-control-file" id="imagenJuego" name="imagenJuego">

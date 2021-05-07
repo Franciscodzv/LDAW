@@ -38,10 +38,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto d-flex">
                         <li class="pr-4 ">
-                            <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='/registrarJuego'">Registrar Juego</button>
+                            <button type="button" class="btn btn-outline-success" onclick="window.location.href='/registrarJuego'">Registrar Juego</button>
                         </li>
                         <li class="pr-4"> 
                             <button type="button" class="btn btn-outline-primary">Mis Juegos</button>
+                        </li>
+                        <li class="pr-4 ">
+                            <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='/registrarTitulo'">Registrar Título</button>
                         </li>
                         <li class="pr-4 d-flex flex-row align-items-center ">
                             <i class="far fa-bell " style="font-size:20px;"></i>

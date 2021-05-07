@@ -7,7 +7,7 @@
     <div class="col-8 offset-2">
 
     <div class="row">
-     <h1>Registrar Juego</h1> 
+     <h1>Administrador Registra Título</h1> 
     </div>
 
       <div class="form-group row pt-2">
@@ -17,6 +17,20 @@
           @if($errors->has('registrarJuego'))
             <span class="invalid-feedback" role="alert">
               <strong>{{$errors->first('registrarJuego')}}</strong>
+            </span>
+          @endif
+      </div>
+
+      <div class="form-group row">
+        <label class=" col-form-label" for="genero">Género del Juego</label>
+          <select name="genero" id="genero" class="form-control">
+            <option value="Aventura">Aventura</option>
+            <option value="Accion">Acción</option>
+            <option value="FPS">First Person Shooter</option>
+          </select>
+          @if($errors->has('descripcionJuego'))
+            <span class="invalid-feedback" role="alert">
+              <strong>{{$errors->first('descripcionJuego')}}</strong>
             </span>
           @endif
       </div>
