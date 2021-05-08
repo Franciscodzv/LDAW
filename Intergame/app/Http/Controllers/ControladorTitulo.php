@@ -51,9 +51,9 @@ class ControladorTitulo extends Controller
      */
     public function show($id)
     {
-        $titulo = Titulo::getTitulo($id);
+        $titulo = Titulo::getTitle($id);
 
-        return view("resenia", ["titulo" => $titulo]);
+        return view("/game/infoTitulo", ["titulo" => $titulo]);
 
     }
 

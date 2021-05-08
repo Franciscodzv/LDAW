@@ -9,8 +9,31 @@ class Genre extends Model
 {
     use HasFactory;
 
-  /*  public function titles(){
-        return $this->belongsToMany(Title::class);
-    }*/
+    public function titles(){
+        return $this->belongsToMany(Title::class, "genres_titles");
+    }
+
+    public function getGenre($id){
+
+        //$books = self::all();
+        $genres = self::where("title_id", "=", $id);
+
+        $result = [];
+
+        foreach($genres as $genre){
+
+            $genreArray = [
+                "id" => $genre->id,
+                "name" => $genre->name
+            ];
+
+
+            $result[$genre->id] = $genreArray;
+
+        }
+
+        return $result;
+
+    }
 
 }

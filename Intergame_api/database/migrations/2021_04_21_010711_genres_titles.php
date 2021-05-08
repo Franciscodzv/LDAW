@@ -15,12 +15,12 @@ class GenresTitles extends Migration
     {
         Schema::create('genres_titles', function (Blueprint $table) {
             
-            $table->foreignId('id_genre')->references('id')->on('genres')
+            $table->foreignId('genre_id')->references('id')->on('genres')
             ->constraint()
             ->onUpdate("cascade")
             ->onDelete("cascade");
 
-            $table->foreignId('id_title')->references('id')->on('titles')
+            $table->foreignId('title_id')->references('id')->on('titles')
             ->constraint()
             ->onUpdate("cascade")
             ->onDelete("cascade");

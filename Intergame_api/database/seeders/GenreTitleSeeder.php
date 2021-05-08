@@ -19,24 +19,24 @@ class GenreTitleSeeder extends Seeder
         //
         DB::table('genres_titles')->insert(array(
             array(
-                'id_genre' => '1',
-                'id_title' => '1',
+                'genre_id' => '1',
+                'title_id' => '1',
             ),
             array(
-                'id_genre' => '2',
-                'id_title' => '2',
+                'genre_id' => '2',
+                'title_id' => '2',
             ),
             array(
-                'id_genre' => '3',
-                'id_title' => '3',
+                'genre_id' => '3',
+                'title_id' => '3',
             ),
             array(
-                'id_genre' => '4',
-                'id_title' => '4',
+                'genre_id' => '4',
+                'title_id' => '4',
             ),
             array(
                 'id_genre' => '5',
-                'id_title' => '5',
+                'title_id' => '5',
             ),
         ));
     }

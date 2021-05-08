@@ -34,9 +34,29 @@ class ControladorTitulo extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id){
+
+        $title = Title::where("id",$id)->first();
+
+        $output = [
+            "id" => $title->id,
+            "name" => $title->name,
+            "reviews" => [],
+            "genres" => [],
+            "description" => $title->description,
+            "image" => $title->image,
+        ];
+
+        foreach($title->reviews as $review){
+            $output["reviews"][] = $review->getReview($id);
+        }
+
+        foreach($title->genres as $genre){
+            $output["genres"][] = $genre->getGenre($id);
+        }
+
+        return $output;
+
     }
 
     /**

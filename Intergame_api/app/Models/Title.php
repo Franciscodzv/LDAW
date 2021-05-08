@@ -10,11 +10,14 @@ class Title extends Model
 {
     use HasFactory;
 
- 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 
-  /*  public function genres(){
-        return $this->belongsToMany(Genre::class);
-    }*/
+    public function genres(){
+        return $this->belongsToMany(Genre::class, "genres_titles");
+    }
 
     public static function getAllTitles(){
 
@@ -28,8 +31,7 @@ class Title extends Model
             $titleArray = [
                 "id" => $title->id,
                 "name" => $title->name,
-                "image" => $title->image
-                
+                "image" => $title->image   
             ];
 
 

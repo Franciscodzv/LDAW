@@ -13,13 +13,14 @@
         </nav>
 
         <div class="container">
-            <div class="row pt-5 flex">
+            <div class="row pt-3 flex">
             @foreach($titulos as $id => $title)
                 <div class="col-4">
+                    <a href="{{ route("titulos.show", $title['id']) }}">
                         <img src={{  $title['image']  }} class="w-100" alt="...">
-                        <div class="card-body ">
-                        <p class="card-text text-center ">{{$title['name'] }}</p>
-                        <a href="{{ route("titulos.show",["title" => $id]) }}" class="btn btn-primary">Detalle</a>
+                    </a>
+                        <div class="card-body card-text text-center">
+                        <a href="{{ route("titulos.show", $title['id']) }}" class="btn btn-primary">{{$title['name'] }}</a>
                     </div> 
                 </div>
             @endforeach
