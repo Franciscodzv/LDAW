@@ -25,11 +25,13 @@ Route::get('/Integrantes', function () {
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+/*
 Route::get('/home', function () {
     return view('home');
 });//->middleware('auth');
 
+
+*/
 Route::group(['middleware' => 'auth'],  function () {
     return view('/home');
     //Route::get('/', [JornadaController::class, 'index'])->name('home');
@@ -62,3 +64,9 @@ Route::get('/oferta',function(){
 Route::get('/notificaciones',function(){
     return view('game.notificaciones');
 });
+//rutas titulos
+use App\Http\Controllers\ControladorTitulo;
+
+
+Route::get("/",[ControladorTitulo::class,"index"]);
+Route::resource('titulos', ControladorTitulo::class)->except(["index"]);//->middleware('auth');
