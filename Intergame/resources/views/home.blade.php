@@ -19,7 +19,7 @@
                         <img src={{  $title['image']  }} class="w-100" alt="...">
                         <div class="card-body ">
                         <p class="card-text text-center ">{{$title['name'] }}</p>
-                        <a href="" class="btn btn-primary">Detalle</a>
+                        <a href="{{ route("titulos.show",["title" => $id]) }}" class="btn btn-primary">Detalle</a>
                     </div> 
                 </div>
             @endforeach

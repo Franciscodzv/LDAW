@@ -24,14 +24,9 @@ Route::get('/Integrantes', function () {
 
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-/*
-Route::get('/home', function () {
-    return view('home');
-});//->middleware('auth');
 
 
-*/
+
 Route::group(['middleware' => 'auth'],  function () {
     return view('/home');
     //Route::get('/', [JornadaController::class, 'index'])->name('home');
