@@ -17,17 +17,17 @@ class Reviews extends Migration
             
             $table->text('description');
             
-            $table->foreignId('id_user')->references('id')->on('users')
+            $table->foreignId('user_id')->references('id')->on('users')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
-            $table->foreignId('id_title')->references('id')->on('titles')
+            $table->foreignId('title_id')->references('id')->on('titles')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
-            //$table->timestamps('date');
+            $table->date('date') -> index();
         });
     }
 
