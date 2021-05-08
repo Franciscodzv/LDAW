@@ -14,22 +14,24 @@
 
         <div class="container">
             <div class="row pt-5 flex">
-            @foreach($titulos as $id => $titulo)
+            @foreach($titulos as $id => $title)
                 <div class="col-4">
-                    <img src="{{ url( $imagen ) }}" class="w-100" alt="...">
+                        <img src={{  $title['image']  }} class="w-100" alt="...">
                         <div class="card-body ">
-                        <p class="card-text text-center ">{{ $name }}</p>
-                        <a href="{{ route("titulos.show",["titulo" => $id]) }}" class="btn btn-primary">Detalle</a>
-                    </div>
+                        <p class="card-text text-center ">{{$title['name'] }}</p>
+                        <a href="" class="btn btn-primary">Detalle</a>
+                    </div> 
                 </div>
             @endforeach
              
             
+
                 <!--div class="col-4">
                     <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2020/10/halo-5-2111873.jpg?itok=nBQ5jpKU" class="w-100" alt="...">
                         <div class="card-body ">
                         <p class="card-text text-center ">Title 3</p>
                     </div>
+                   
                 </div-->
             </div>
         </div>
