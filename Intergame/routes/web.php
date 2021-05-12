@@ -65,3 +65,13 @@ use App\Http\Controllers\ControladorTitulo;
 
 Route::get("/",[ControladorTitulo::class,"index"]);
 Route::resource('titulos', ControladorTitulo::class)->except(["index"]);//->middleware('auth');
+
+
+
+//rutas admin
+use App\Http\Controllers\ControladorAdmin;
+Route::resource('users', ControladorAdmin::class);//->middleware('auth');
+
+//rutas generos
+use App\Http\Controllers\ControladorGeneros;
+Route::resource('genres', ControladorGeneros::class);//->middleware('auth');

@@ -11,24 +11,18 @@
     </div>
     <table class="table table-striped">
     <tbody>
-        <tr>
-        
-            <td>Persona 1</td>
-            <td class="d-flex justify-content-center "><button class="btn btn-primary">Agregar</button> <!--1:50:30 tutorial laravel--></td>
-            
-        </tr>
-        <tr>
-        
-            <td>Persona 2</td>
-            <td class="d-flex justify-content-center "><button class="btn btn-primary">Agregar</button> <!--1:50:30 tutorial laravel--></td>
-           
-        </tr>
-        <tr>
-        
-            <td>Persona 3</td>
-            <td class="d-flex justify-content-center "><button class="btn btn-primary">Agregar</button> <!--1:50:30 tutorial laravel--></td>
-            
-        </tr>
+
+        @foreach($users as $id => $user) 
+        @csrf
+        @method('PUT')
+         
+            <tr>
+              <td> {{ $user['name'] }}</td>
+             
+              <td class="d-flex justify-content-center "><a class="btn btn-primary"  href="{{ route('users.update', $user['id']) }} " >Agregar</a> <!--1:50:30 tutorial laravel--></td>
+            </tr>
+        @endforeach
+       
     </tbody>
     </table>
 

@@ -36,4 +36,27 @@ class Genre extends Model
 
     }
 
+    public function getGenres(){
+
+        //$books = self::all();
+        $genres = self::all();
+
+        $result = [];
+
+        foreach($genres as $genre){
+
+            $genreArray = [
+                "id" => $genre->id,
+                "name" => $genre->name
+            ];
+
+
+            $result[$genre->id] = $genreArray;
+
+        }
+
+        return $result;
+
+    }
+
 }

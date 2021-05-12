@@ -23,3 +23,8 @@ use App\Http\Controllers\ControladorTitulo;
 
 Route::apiResource("titles", ControladorTitulo::class);
 
+
+use App\Http\Controllers\ControladorAdmin;
+
+Route::apiResource("users", ControladorAdmin::class);
+

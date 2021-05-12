@@ -24,9 +24,16 @@
       <div class="form-group row">
         <label class=" col-form-label" for="genero">Género del Juego</label>
           <select name="genero" id="genero" class="form-control">
-            <option value="Aventura">Aventura</option>
-            <option value="Accion">Acción</option>
-            <option value="FPS">First Person Shooter</option>
+
+          @foreach($genres as $id => $genre) 
+      
+        <option value="{{ $genre['id'] }}">{{ $genre['name'] }}</option>
+           
+        @endforeach
+            
+         
+
+
           </select>
           @if($errors->has('descripcionJuego'))
             <span class="invalid-feedback" role="alert">
@@ -49,7 +56,7 @@
 
       <div class="row">
         <label class="col-form-label" for="imagenJuego">Imagen del Juego</label>
-        <input type="file" class="form-control-file" id="imagenJuego" name="imagenJuego">
+        <input type="text" class="form-control-file" id="imagenJuego" name="imagenJuego">
         @if($errors->has('imagenJuego'))
             <span class="invalid-feedback" role="alert">
               <strong>{{$errors->first('imagenJuego')}}</strong>
