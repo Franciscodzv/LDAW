@@ -27,7 +27,14 @@ class Titulo extends Model
         return $response->json();
 
     }
+   
+    public static function  createTitle($result){
 
+        $response = Http::post(env("API_URL") . "titles",$result );
+        //Devolver el resultado como un arreglo de PHP
+        return $response->json();
+
+    }
 
 
 

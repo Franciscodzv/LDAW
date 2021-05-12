@@ -28,3 +28,7 @@ use App\Http\Controllers\ControladorAdmin;
 
 Route::apiResource("users", ControladorAdmin::class);
 
+use App\Http\Controllers\ControladorGeneros;
+
+Route::apiResource("genres", ControladorGeneros::class);
+

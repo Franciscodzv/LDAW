@@ -22,6 +22,14 @@ class ControladorTitulo extends Controller
         //return view('/home');
     }
 
+
+    public function lista()
+    {
+        
+        $title =Titulo::getTitles();
+        return view("game.editarTitulos", ["titulos" => $title]);
+        //return view('/home');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -39,8 +47,17 @@ class ControladorTitulo extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        $result=[
+        $name=$request->name,
+        $description=$request->description,
+        $genre=$request->genre,
+        $image=$request->description,
+        ];
+        Titulo::createTitle($result);
+
+        $title =Titulo::getTitles();
+        return view("home", ["titulos" => $title]);
     }
 
     /**

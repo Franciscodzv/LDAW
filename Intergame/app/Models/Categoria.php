@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+//Importar el cliente de HTTP
+use Illuminate\Support\Facades\Http;
 class Categoria extends Model
 {
     use HasFactory;

@@ -24,8 +24,16 @@ class ControladorTitulo extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+
+        $result=[
+        $name=$request->name,
+        $description=$request->description,
+        $genre=$request->genre,
+        $image=$request->description,
+        ];
+        Titulo::createTitle($result);
+
     }
 
     /**

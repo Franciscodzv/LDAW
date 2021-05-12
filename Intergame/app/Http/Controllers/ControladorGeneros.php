@@ -16,7 +16,7 @@ class ControladorGeneros extends Controller
     public function index()
     {
         $genres =Categoria::getGenres();
-        return view("game.registrarTitulo", ["genres" => $genres]);
+        return view("game.registrarJuego", ["genres" => $genres]);
     }
 
     /**

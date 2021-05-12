@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
+//Importar la facade para la clase DB
+use Illuminate\Support\Facades\DB;
 class Title extends Model
 {
     use HasFactory;
@@ -41,6 +42,13 @@ class Title extends Model
 
         return $result;
     }
-
-
+    public static function createTitle($result){
+       DB::table('titles')->insert([
+        'name'->$result->name,
+        'description'->$result->description,
+        'image'->$result->image,
+        'genre'->$result->genre,
+       ]);
+    }
+   
 }

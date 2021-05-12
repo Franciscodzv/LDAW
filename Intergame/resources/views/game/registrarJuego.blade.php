@@ -9,11 +9,11 @@
     <div class="row">
      <h1>Administrador Registra Título</h1> 
     </div>
-
+    <form method="post" action="{{ route('titulos.store')}}"> 
       <div class="form-group row pt-2">
         <label class=" col-form-label" for="registrarJuego">Título del Juego</label>
-          <input type="text" id="registrarJuego" class="form-control{{$errors->has('titulo') 
-          ? 'is-invalid' : '' }}" name="registrarJuego" >
+          <input type="text" id="name" class="form-control{{$errors->has('titulo') 
+          ? 'is-invalid' : '' }}" name="name" >
           @if($errors->has('registrarJuego'))
             <span class="invalid-feedback" role="alert">
               <strong>{{$errors->first('registrarJuego')}}</strong>
@@ -23,13 +23,13 @@
 
       <div class="form-group row">
         <label class=" col-form-label" for="genero">Género del Juego</label>
-          <select name="genero" id="genero" class="form-control">
+          <select name="genre" id="genre" class="form-control">
 
-          @foreach($genres as $id => $genre) 
+        @foreach($genres as $id => $genre) 
       
-        <option value="{{ $genre['id'] }}">{{ $genre['name'] }}</option>
+              <option value="{{ $genre['id'] }}">{{ $genre['name'] }}</option>
            
-        @endforeach
+          @endforeach
             
          
 
@@ -44,8 +44,8 @@
 
       <div class="form-group row">
         <label class=" col-form-label" for="descripcionJuego">Descripción del Juego</label>
-          <textarea type="text" id="descripcionJuego" class="form-control input-lg{{$errors->has('titulo') 
-          ? 'is-invalid' : '' }}" name="descripcionJuego" aria-label="With textarea">
+          <textarea type="text" id="description" class="form-control input-lg{{$errors->has('titulo') 
+          ? 'is-invalid' : '' }}" name="description" aria-label="With textarea">
           </textarea>
           @if($errors->has('descripcionJuego'))
             <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
 
       <div class="row">
         <label class="col-form-label" for="imagenJuego">Imagen del Juego</label>
-        <input type="text" class="form-control-file" id="imagenJuego" name="imagenJuego">
+        <input type="text" class="form-control-file" id="image" name="image">
         @if($errors->has('imagenJuego'))
             <span class="invalid-feedback" role="alert">
               <strong>{{$errors->first('imagenJuego')}}</strong>
@@ -65,9 +65,11 @@
       </div>
 
       <div class="row pt-5">
-            <button class="btn btn-primary">Registrar Juego</button> <!--1:50:30 tutorial laravel-->
+            <button type="submit" class="btn btn-primary">Registrar Juego</button> <!--1:50:30 tutorial laravel-->
       </div>
 
+
+      </form> 
     </div>
   </div>
   

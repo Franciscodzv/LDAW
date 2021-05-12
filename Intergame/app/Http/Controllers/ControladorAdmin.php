@@ -50,7 +50,8 @@ class ControladorAdmin extends Controller
     public function update(Request $request, $id)
     {
         Usuario::makeAdmin($id);
-        return view('game.altaAdministrador');
+        $user =Usuario::getUsers();
+        return view("game.altaAdministrador", ["users" => $user]);
         //return redirect('/users')->with('success', 'User updated!');
     }
 

@@ -65,6 +65,7 @@ use App\Http\Controllers\ControladorTitulo;
 
 Route::get("/",[ControladorTitulo::class,"index"]);
 Route::resource('titulos', ControladorTitulo::class)->except(["index"]);//->middleware('auth');
+Route::get('editarTitulos', [ControladorTitulo::class,"lista"]);//->middleware('auth');
 
 
 
@@ -74,4 +75,5 @@ Route::resource('users', ControladorAdmin::class);//->middleware('auth');
 
 //rutas generos
 use App\Http\Controllers\ControladorGeneros;
-Route::resource('genres', ControladorGeneros::class);//->middleware('auth');
+Route::resource('genres', ControladorGeneros::class)->except(["index"]);//->middleware('auth');
+Route::get("registrarTitulo",[ControladorGeneros::class,"index"]);

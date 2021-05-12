@@ -11,24 +11,20 @@
     </div>
     <table class="table table-striped">
     <tbody>
+      
+
+
+        @foreach($titulos as $id => $title)
+
+
         <tr>
         
-            <td>Titulo 1</td>
-            <td><button class="btn btn-primary">Editar</button> <!--1:50:30 tutorial laravel--></td>
-            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
-        <tr>
+        <td>{{$title['name'] }}</td>
         
-            <td>Titulo 2</td>
-            <td><button class="btn btn-primary">Editar</button> <!--1:50:30 tutorial laravel--></td>
-            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
-        <tr>
-        
-            <td>Titulo 3</td>
-            <td><button class="btn btn-primary">Editar</button> <!--1:50:30 tutorial laravel--></td>
-            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
+        <td><button type="button" class="btn btn-danger" value="$title['id']">Eliminar</button></td>
+      </tr>
+            @endforeach
+       
     </tbody>
     </table>
 
