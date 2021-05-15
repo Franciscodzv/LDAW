@@ -13,13 +13,18 @@
     <tbody>
 
         @foreach($users as $id => $user) 
-        @csrf
-        @method('PUT')
-         
+       
             <tr>
               <td> {{ $user['name'] }}</td>
              
-              <td class="d-flex justify-content-center "><a class="btn btn-primary"  href="{{ route('users.update', $user['id']) }} " >Agregar</a> <!--1:50:30 tutorial laravel--></td>
+              <td class="d-flex justify-content-center "> 
+                <form action="{{ url('users/'.$user['id']) }} " method="post">
+                  @csrf
+                  @method('PUT')
+                  <button type="submit" class="btn btn-primary"   >Agregar</button> 
+                </form>
+              </td>
+              
             </tr>
         @endforeach
        

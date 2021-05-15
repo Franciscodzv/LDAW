@@ -17,7 +17,7 @@
             @foreach($titulos as $id => $title)
                 <div class="col-4">
                     <a href="{{ route("titulos.show", $title['id']) }}">
-                        <img src={{  $title['image']  }} class="w-100" alt="...">
+                        <img src={{  $title['image']  }}  class="w-100 rounded " height="350px" alt="...">
                     </a>
                         <div class="card-body card-text text-center">
                         <a href="{{ route("titulos.show", $title['id']) }}" class="btn btn-primary">{{$title['name'] }}</a>

@@ -49,7 +49,7 @@ class ControladorAdmin extends Controller
      */
     public function update(Request $request, $id)
     {
-        return User::makeAdmin($id);
+         User::makeAdmin($id);
     }
 
     /**

@@ -43,7 +43,7 @@ class User extends Model
 
         $query = DB::table("users as u")
         ->where("u.id",$id)
-        ->update(['u.id_role' => 1]) ->get();
+        ->update(['u.id_role' => 1]);
         
     }
 }
