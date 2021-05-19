@@ -30,12 +30,25 @@ class Titulo extends Model
    
     public static function  createTitle($result){
 
-        $response = Http::post(env("API_URL") . "titles",$result );
+        $response = Http::post(env("API_URL") . "titles",[
+            'name'=>$result['name'],
+            'genre'=>$result['genre'],
+            'description'=>$result['description'],
+            'image'=>$result['image']
+
+        ] );
+      
         //Devolver el resultado como un arreglo de PHP
         return $response->json();
 
     }
 
 
+    public static function  deleteTitle($id){
+
+        $response = Http::delete(env("API_URL") . "titles". "/$id");
+       
+
+    }
 
 }

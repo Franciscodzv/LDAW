@@ -48,16 +48,21 @@ class ControladorTitulo extends Controller
      */
     public function store(Request $request)
     { 
-        $result=[
-        $name=$request->name,
-        $description=$request->description,
-        $genre=$request->genre,
-        $image=$request->description,
-        ];
-        Titulo::createTitle($result);
+      $result=[
+          'name'=>$request->input('name'),
+          'genre'=>$request->input('genre'),
+          'description'=>$request->input('description'),
+          'image'=>$request->input('image')
+      ];
+     
 
-        $title =Titulo::getTitles();
-        return view("home", ["titulos" => $title]);
+       $r=Titulo::createTitle($result);
+       if($r['success']==1){
+           return redirect('/')->with('status','exito');
+       }
+
+       /*$title =Titulo::getTitles();
+        return view("home", ["titulos" => $title]);*/
     }
 
     /**
@@ -105,6 +110,7 @@ class ControladorTitulo extends Controller
      */
     public function destroy($id)
     {
-        //
+        Titulo::deleteTitle($id);
+        return redirect("/editarTitulos");
     }
 }

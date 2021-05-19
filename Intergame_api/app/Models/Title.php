@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\DB;
 class Title extends Model
 {
     use HasFactory;
-
+    public $timestamps = false;
+    protected $fillable=['name','description','genre','image'];
+  
     public function reviews()
     {
         return $this->hasMany(Review::class);
@@ -43,12 +45,17 @@ class Title extends Model
         return $result;
     }
     public static function createTitle($result){
-       DB::table('titles')->insert([
-        'name'->$result->name,
-        'description'->$result->description,
-        'image'->$result->image,
-        'genre'->$result->genre,
-       ]);
+       
+        $title = Title::create([
+            'name'=>$result['name'],
+            /*'genre'=>$result['genre'],*/
+            'description'=>$result['description'],
+            'image'=>$result['image']
+        ]);
+        $id=$title->id;
+        $genre=Genre::find($result['genre']);
+        return $title->genres()->save($genre);
+        
     }
    
 }

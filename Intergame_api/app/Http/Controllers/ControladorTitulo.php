@@ -25,14 +25,19 @@ class ControladorTitulo extends Controller
      */
     public function store(Request $request)
     {   
-
         $result=[
-        $name=$request->name,
-        $description=$request->description,
-        $genre=$request->genre,
-        $image=$request->description,
+            'name'=>$request->input('name'),
+            'genre'=>$request->input('genre'),
+            'description'=>$request->input('description'),
+            'image'=>$request->input('image')
         ];
-        Titulo::createTitle($result);
+       if(Title::createTitle($result)){
+           return ['success'=>1];
+       } 
+
+         return ['success'=>0];
+      
+      
 
     }
 
@@ -87,6 +92,7 @@ class ControladorTitulo extends Controller
      */
     public function destroy($id)
     {
-        //
+        Title::where("id",$id)->delete();
+        
     }
 }

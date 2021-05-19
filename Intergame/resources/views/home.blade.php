@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
     <div class="row justify-content-center">
         <nav class="navbar  mt-5">
             <div class="container-fluid justify-content-center ">
