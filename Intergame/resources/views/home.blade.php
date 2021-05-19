@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
     <div class="row justify-content-center">
         <nav class="navbar  mt-5">
             <div class="container-fluid justify-content-center ">
@@ -17,7 +22,7 @@
             @foreach($titulos as $id => $title)
                 <div class="col-4">
                     <a href="{{ route("titulos.show", $title['id']) }}">
-                        <img src={{  $title['image']  }} class="w-100" alt="...">
+                        <img src={{  $title['image']  }}  class="w-100 rounded " height="350px" alt="...">
                     </a>
                         <div class="card-body card-text text-center">
                         <a href="{{ route("titulos.show", $title['id']) }}" class="btn btn-primary">{{$title['name'] }}</a>

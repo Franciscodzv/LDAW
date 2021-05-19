@@ -10,25 +10,44 @@
      <h1>Editar Titulos</h1> 
     </div>
     <table class="table table-striped">
+    <thead>
+          <tr>
+              <th> Titulo</th>
+             
+              <th class="d-flex justify-content-center "> 
+              <form action="" method="post">
+                  @csrf
+                  @method('PUT')
+                Accion
+                </form>
+              </th>
+              
+            </tr>
+
+     </thead>
     <tbody>
-        <tr>
-        
-            <td>Titulo 1</td>
-            <td><button class="btn btn-primary">Editar</button> <!--1:50:30 tutorial laravel--></td>
-            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
-        <tr>
-        
-            <td>Titulo 2</td>
-            <td><button class="btn btn-primary">Editar</button> <!--1:50:30 tutorial laravel--></td>
-            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
-        <tr>
-        
-            <td>Titulo 3</td>
-            <td><button class="btn btn-primary">Editar</button> <!--1:50:30 tutorial laravel--></td>
-            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
+      
+
+
+        @foreach($titulos as $id => $title)
+
+
+            <tr>
+            
+            <td>{{$title['name'] }}</td>
+           
+            <td>   <form action="{{  url('titulos/'.$title['id']) }} " method="POST">
+
+     
+                      @csrf
+                      @method('DELETE')  
+                       <button type="submit" class="btn btn-danger" >Eliminar</button>
+                      </form>
+                      </td>
+           
+          </tr>
+            @endforeach
+       
     </tbody>
     </table>
 

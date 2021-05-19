@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ControladorTitulo;
+use App\Http\Controllers\ControladorAdmin;
+use App\Http\Controllers\ControladorGeneros;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,8 +62,20 @@ Route::get('/notificaciones',function(){
     return view('game.notificaciones');
 });
 //rutas titulos
-use App\Http\Controllers\ControladorTitulo;
+
 
 
 Route::get("/",[ControladorTitulo::class,"index"]);
 Route::resource('titulos', ControladorTitulo::class)->except(["index"]);//->middleware('auth');
+Route::get('editarTitulos', [ControladorTitulo::class,"lista"]);//->middleware('auth');
+
+
+
+//rutas admin
+
+Route::resource('users', ControladorAdmin::class);//->middleware('auth');
+
+//rutas generos
+
+Route::resource('genres', ControladorGeneros::class)->except(["index"]);//->middleware('auth');
+Route::get("registrarTitulo",[ControladorGeneros::class,"index"]);

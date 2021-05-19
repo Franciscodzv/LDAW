@@ -24,8 +24,21 @@ class ControladorTitulo extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $result=[
+            'name'=>$request->input('name'),
+            'genre'=>$request->input('genre'),
+            'description'=>$request->input('description'),
+            'image'=>$request->input('image')
+        ];
+       if(Title::createTitle($result)){
+           return ['success'=>1];
+       } 
+
+         return ['success'=>0];
+      
+      
+
     }
 
     /**
@@ -79,6 +92,7 @@ class ControladorTitulo extends Controller
      */
     public function destroy($id)
     {
-        //
+        Title::where("id",$id)->delete();
+        
     }
 }

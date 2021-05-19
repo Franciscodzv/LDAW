@@ -13,10 +13,30 @@ class Genre extends Model
         return $this->belongsToMany(Title::class, "genres_titles");
     }
 
-    public function getGenre($id){
-
-        //$books = self::all();
+    public static function getGenre($id){
         $genres = self::where("title_id", "=", $id);
+
+        $result = [];
+
+        foreach($genres as $genre){
+
+            $genreArray = [
+                "id" => $genre->id,
+                "name" => $genre->name
+            ];
+
+
+            $result[$genre->id] = $genreArray;
+
+        }
+
+        return $result;
+
+    }
+
+    public static function getGenres(){
+
+        $genres = self::all();
 
         $result = [];
 
