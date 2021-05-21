@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Title;
 
 //Importar la facade para la clase DB
 use Illuminate\Support\Facades\DB;
+use App\Models\Review;
 
-class ControladorTitulo extends Controller
+class ControladorReview extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class ControladorTitulo extends Controller
      */
     public function index()
     {
-        return Title::getAllTitles();
+        //
     }
 
     /**
@@ -27,22 +27,18 @@ class ControladorTitulo extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-       
+    {
+      
         $result=[
-            'name'=>$request->input('name'),
-            'genre'=>$request->input('genre'),
-            'description'=>$request->input('description'),
-            'image'=>$request->input('image')
+            'title_id'=>$request->input('title_id'),
+            'description'=>$request->input('description')
         ];
-       if(Title::createTitle($result)){
+       if(Review::createReview($result)){
            return ['success'=>1];
        } 
 
          return ['success'=>0];
       
-      
-
     }
 
     /**
@@ -51,32 +47,9 @@ class ControladorTitulo extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id){
-
-        $title = Title::where("id",$id)->first();
-
-        $output = [
-            "id" => $title->id,
-            "name" => $title->name,
-            "reviews" => [],
-            "genres" => [],
-            "description" => $title->description,
-            "image" => $title->image,
-        ];
-
-        foreach($title->reviews as $review){
-            //$output["reviews"][] = $review->getReview($id);
-            $output["reviews"] = DB::table("reviews as r")->select("r.description")
-            ->where("r.title_id",$id) ->skip(0)->take(6)->get();
-
-        }
-
-        foreach($title->genres as $genre){
-            $output["genres"][] = $genre->getGenre($id);
-        }
-
-        return $output;
-
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -99,7 +72,6 @@ class ControladorTitulo extends Controller
      */
     public function destroy($id)
     {
-        Title::where("id",$id)->delete();
-        
+        //
     }
 }

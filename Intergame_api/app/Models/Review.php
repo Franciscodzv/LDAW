@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+Use \Carbon\Carbon;
 
 class Review extends Model
 {
-
+    public $timestamps = false;
+    protected $fillable=['date','user_id','title_id','description'];
     public function title()
     {
         return $this->belongsTo(Title::class);
@@ -41,5 +43,17 @@ class Review extends Model
 
         return $result;
 
+    }
+
+    public static function createReview($result){
+       //dd($result);
+        $title = Review::create([
+            'title_id'=>$result['title_id'],
+            'description'=>$result['description'],
+            'user_id'=>1,
+            'date'=> Carbon::now(),
+        ]);
+        return $title;
+        
     }
 }

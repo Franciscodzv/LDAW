@@ -32,3 +32,8 @@ use App\Http\Controllers\ControladorGeneros;
 
 Route::apiResource("genres", ControladorGeneros::class);
 
+use App\Http\Controllers\ControladorReview;
+
+Route::apiResource("review", ControladorReview::class);
+
+
