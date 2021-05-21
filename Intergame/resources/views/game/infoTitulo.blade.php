@@ -2,12 +2,13 @@
 
 @section('content')
 <div class="container">
-  <form action="">
+
   <div class="row">
     <div class="col-8 offset-2">
 
     <div class="row">
      <h1>{{$titulo["name"]}}</h1> 
+    
     </div>
 
     <div class="row ">
@@ -30,27 +31,36 @@
             <p>Comentarios:</p>
       </div>
       
-      @foreach($titulo["reviews"] as $review)
+      @foreach($titulo["reviews"] as  $review)
 
       <div class="form-group row">
-        <p>{{$review['date']}}</p>
-        <p>{{$review['name']}}</p>
-        <p> {{$review['description']}}</p>
+        <p> {{   $review['description'] }}</p>
       </div>
 
       @endforeach
 
-      <div class="row pt-5">
-          <textarea type="text" id="descripcionJuego" class="form-control input-lg{{$errors->has('titulo') 
-              ? 'is-invalid' : '' }}" name="descripcionJuego" aria-label="With textarea">
-          </textarea>
-            <button class="btn btn-primary">Agregar Reseña</button> <!--1:50:30 tutorial laravel-->
-      </div>
+
+
+      <form action="{{route('review.store')}}" method="post" > 
+    @csrf
+        <div class="form-group ">
+        <input type="text" id="title_id" name="title_id" value='{{$titulo["id"]}}'  hidden>
+
+            <textarea type="text" id="description" class="form-control  input-lg{{$errors->has('titulo') 
+                ? 'is-invalid' : '' }}" name="description" aria-label="With textarea" required>
+            </textarea> 
+
+            
+             
+        </div>
+        <button class="btn btn-primary " type="submit">Agregar Reseña</button> 
+      </form>
+
 
     </div>
   </div>
   
-  </form>
+ 
   
 </div>
 @endsection

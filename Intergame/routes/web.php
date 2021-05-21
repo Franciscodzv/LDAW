@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorTitulo;
 use App\Http\Controllers\ControladorAdmin;
 use App\Http\Controllers\ControladorGeneros;
+use App\Http\Controllers\ControladorReview;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,6 +70,7 @@ Route::get("/",[ControladorTitulo::class,"index"]);
 Route::resource('titulos', ControladorTitulo::class)->except(["index"]);//->middleware('auth');
 Route::get('editarTitulos', [ControladorTitulo::class,"lista"]);//->middleware('auth');
 
+Route::get('TitulosInteres', [ControladorTitulo::class,"listaInteres"]);
 
 
 //rutas admin
@@ -79,3 +81,8 @@ Route::resource('users', ControladorAdmin::class);//->middleware('auth');
 
 Route::resource('genres', ControladorGeneros::class)->except(["index"]);//->middleware('auth');
 Route::get("registrarTitulo",[ControladorGeneros::class,"index"]);
+
+
+//rutas review
+
+Route::resource('review', ControladorReview::class);//->middleware('auth');
