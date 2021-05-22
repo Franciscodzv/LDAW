@@ -14,26 +14,27 @@
         <label class=" col-form-label" for="registrarJuego">Títulos:</label>
       </div>
 
-      <form action="{{route('titulos.store')}}" method="post" > 
+      <form action="{{route('registrarTitulosInteres.store')}}" method="post" > 
     @csrf
     @foreach($titulos as $id => $title)
 
 
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="{{$title['id'] }}" value="{{$title['id'] }}">
+      <input class="form-check-input" type="checkbox" id="{{$title['id'] }}" value="{{$title['id'] }}" name="id_title[]">
       <label class="form-check-label" for="inlineCheckbox2">{{$title['name'] }}</label>
     </div>
 
      
 @endforeach
-
+    
+    <div class="row pt-5">
+            <button class="btn btn-primary" type="submit">Registrar Titulos</button> <!--1:50:30 tutorial laravel-->
+      </div>
         </form> 
 
             
 
-      <div class="row pt-5">
-            <button class="btn btn-primary" type="submit">Registrar Titulos</button> <!--1:50:30 tutorial laravel-->
-      </div>
+    
 
 
 
