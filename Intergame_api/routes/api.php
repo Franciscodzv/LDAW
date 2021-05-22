@@ -37,3 +37,6 @@ use App\Http\Controllers\ControladorReview;
 Route::apiResource("review", ControladorReview::class);
 
 
+use App\Http\Controllers\ControladorTitulosInteres;
+
+Route::apiResource("registrarTitulosInteres", ControladorTitulosInteres::class);

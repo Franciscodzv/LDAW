@@ -5,6 +5,7 @@ use App\Http\Controllers\ControladorTitulo;
 use App\Http\Controllers\ControladorAdmin;
 use App\Http\Controllers\ControladorGeneros;
 use App\Http\Controllers\ControladorReview;
+use App\Http\Controllers\ControladorTitulosInteres;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,7 +40,7 @@ Route::get('/registrarTitulo', function(){
     return view('game.registrarJuego');
 });
 
-Route::get('/registrarTitulosInteres', function(){
+Route::get('/titulosInteres', function(){
     return view('game.titulosInteres');
 });
 Route::get('/escribirReview', function(){
@@ -86,3 +87,6 @@ Route::get("registrarTitulo",[ControladorGeneros::class,"index"]);
 //rutas review
 
 Route::resource('review', ControladorReview::class);//->middleware('auth');
+
+
+Route::resource('registrarTitulosInteres', ControladorTitulosInteres::class);//->middleware('auth');
