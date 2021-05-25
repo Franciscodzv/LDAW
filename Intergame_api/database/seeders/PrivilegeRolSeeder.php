@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
-class RolesPermissonsSeeder extends Seeder
+class PrivilegeRolSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,18 +17,18 @@ class RolesPermissonsSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('roles_permissions')->insert(array(
+        DB::table('privileges_roles')->insert(array(
             array(
-                'id_role' => '1',
-                'id_permission' => '1',
+                'role_id' => '1',
+                'privilege_id' => '1',
             ),
             array(
-                'id_role' => '1',
-                'id_permission' => '2',
+                'role_id' => '1',
+                'privilege_id' => '2',
             ),
             array(
-                'id_role' => '1',
-                'id_permission' => '3',
+                'role_id' => '1',
+                'privilege_id' => '3',
             ),
         ));
     }

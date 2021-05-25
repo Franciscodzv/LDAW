@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this-> call(GenreSeeder::class);
         $this-> call(RolSeeder::class);
         $this-> call(PrivilegeSeeder::class);
-        $this-> call(RolesPermissonsSeeder::class);
+        $this-> call(PrivilegeRolSeeder::class);
         $this-> call(UserSeeder::class);
         $this-> call(TitleSeeder::class);
         $this-> call(GenreTitleSeeder::class);
