@@ -23,37 +23,37 @@ class UserSeeder extends Seeder
                 'name' => 'Alberto',
                 'email' => 'matu@gmail.com',
                 'password' => hash::make('Alb3rt0'),
-                'id_role' => '1',
+                'role_id' => '1',
             ),
             array(
                 'name' => 'Eduardo',
                 'email' => 'cadena@gmail.com',
                 'password' => hash::make('C4d3n4'),
-                'id_role' => '1',
+                'role_id' => '1',
             ),
             array(
                 'name' => 'Francisco',
                 'email' => 'paco@gmail.com',
                 'password' => hash::make('Fr4nc1sc0'),
-                'id_role' => '1',
+                'role_id' => '1',
             ),
             array(
                 'name' => 'Alberto',
                 'email' => 'matu@gmailasd.com',
                 'password' => hash::make('Alb3rt0'),
-                'id_role' => '2',
+                'role_id' => '2',
             ),
             array(
                 'name' => 'Eduardo',
                 'email' => 'cadena@gmaasdil.com',
                 'password' => hash::make('C4d3n4'),
-                'id_role' => '2',
+                'role_id' => '2',
             ),
             array(
                 'name' => 'Francisco',
                 'email' => 'paco@gmaasdil.com',
                 'password' => hash::make('Fr4nc1sc0'),
-                'id_role' => '2',
+                'role_id' => '2',
             ),
         ));
     }
