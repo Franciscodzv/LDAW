@@ -17,7 +17,7 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('permissions')->insert(array(
+        DB::table('privileges')->insert(array(
             array(
                 'description' => 'user:update',
             ),
