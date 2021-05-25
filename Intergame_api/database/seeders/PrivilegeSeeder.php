@@ -19,13 +19,13 @@ class PrivilegeSeeder extends Seeder
         //
         DB::table('privileges')->insert(array(
             array(
-                'description' => 'user:update',
+                'name' => 'user:update',
             ),
             array(
-                'description' => 'genre:write',
+                'name' => 'genre:write',
             ),
             array(
-                'descripcion' => 'title:write',
+                'name' => 'title:write',
             ),
         ));
     }
