@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Genre;
-class ControladorGeneros extends Controller
+//Importar el model
+use App\Models\Categoria;
+
+class GenreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class ControladorGeneros extends Controller
      */
     public function index()
     {
-        return Genre::getGenres();
+        $genres =Categoria::getGenres();
+        return view("game.registrarJuego", ["genres" => $genres]);
     }
 
     /**

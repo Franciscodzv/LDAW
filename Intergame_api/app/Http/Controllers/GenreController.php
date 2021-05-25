@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//Importar el model
-use App\Models\Preferencia;
-
-class ControladorTitulosInteres extends Controller
+use App\Models\Genre;
+class GenreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,7 @@ class ControladorTitulosInteres extends Controller
      */
     public function index()
     {
-       
+        return Genre::getGenres();
     }
 
     /**
@@ -26,14 +24,7 @@ class ControladorTitulosInteres extends Controller
      */
     public function store(Request $request)
     {
-        
-        $result=$request->input('id_title');
-       
-
-         $r=Preferencia::createTitulosInteres($result);
-        if($r['success']==1){
-             return redirect('/')->with('status','exito');
-         }
+        //
     }
 
     /**

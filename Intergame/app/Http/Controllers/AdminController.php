@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //Importar el model
 use App\Models\Usuario;
-class ControladorAdmin extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ControladorAdmin extends Controller
      */
     public function index()
     {
-        $user =Usuario::getUsers();
+        $user =Usuario::getGuests();
         return view("game.altaAdministrador", ["users" => $user]);
     }
 

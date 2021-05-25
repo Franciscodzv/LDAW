@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//Importar el model
-use App\Models\Categoria;
 
-class ControladorGeneros extends Controller
+//Importar el model
+use App\Models\Review;
+
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,7 @@ class ControladorGeneros extends Controller
      */
     public function index()
     {
-        $genres =Categoria::getGenres();
-        return view("game.registrarJuego", ["genres" => $genres]);
+        //
     }
 
     /**
@@ -27,7 +27,17 @@ class ControladorGeneros extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd( $request->all());
+        $result=[
+            'title_id'=>$request->input('title_id'),
+            'description'=>$request->input('description'),
+        ];
+ 
+         $r=Review::createReview($result);
+        
+       if($r['success']==1){
+             return redirect('/')->with('status','exito');
+       }
     }
 
     /**
@@ -38,7 +48,7 @@ class ControladorGeneros extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

@@ -5,18 +5,72 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 //Importar la facade para la clase DB
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
-class User extends Model
+class User extends Authenticatable 
 {
-    use HasFactory;
+    use HasFactory, Notifiable, HasApiTokens;
 
-    public function review()
-    {
+
+        /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+
+    //Un usuario puede tener solo un rol
+    public function role(){
+        return $this->belongsTo(Rol::class);
+    }
+    
+    public function review(){
         return $this->belongsTo(Review::class);
     }
 
-    public static function getUsers(){
+    /*************************
+        MÉTODOS DE LA CLASE
+    *************************/
+
+    public function getPrivilegesList(){
+
+        $privileges = $this->role->privileges->pluck("name");
+
+        return $privileges;
+
+    }
+
+
+    public static function getGuest(){
 
         $query = DB::table("users as u")
         ->where("u.id_role",2);
@@ -45,5 +99,17 @@ class User extends Model
         ->where("u.id",$id)
         ->update(['u.id_role' => 1]);
         
+    }
+
+    public static function login($email, $password){
+
+        $user = DB::table("users as u")
+        ->where([
+            ['u.email', '=', $email],
+            ['u.password', '=', Hash::make($password)],
+        ])->get();
+
+        return $user->createToken('token-name', [$user->role->privileges->pluck("name")])->plainTextToken;
+   
     }
 }

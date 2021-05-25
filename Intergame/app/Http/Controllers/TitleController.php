@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 //Importar el model
 use App\Models\Titulo;
 
-class ControladorTitulo extends Controller
+class TitleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,6 @@ class ControladorTitulo extends Controller
      */
     public function index()
     {
-        
         $title =Titulo::getTitles();
         return view("home", ["titulos" => $title]);
         //return view('/home');

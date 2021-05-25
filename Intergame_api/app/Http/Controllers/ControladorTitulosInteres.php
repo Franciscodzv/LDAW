@@ -9,7 +9,7 @@ use App\Models\Preferencia;
 //Importar la facade para la clase DB
 use Illuminate\Support\Facades\DB;
 
-class ControladorTitulosInteres extends Controller
+class InterestController extends Controller
 {
     /**
      * Display a listing of the resource.

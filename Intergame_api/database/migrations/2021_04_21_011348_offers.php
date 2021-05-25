@@ -17,12 +17,12 @@ class Offers extends Migration
             $table->id('id');
             $table->text('comment');
 
-            $table->foreignId('id_gameOwn')->references('id')->on('games')
+            $table->foreignId('gameOwn_id')->references('id')->on('games')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
-            $table->foreignId('id_gameOffer')->references('id')->on('games')
+            $table->foreignId('gameOffer_id')->references('id')->on('games')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');

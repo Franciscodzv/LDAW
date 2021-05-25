@@ -19,13 +19,13 @@ class PermissionSeeder extends Seeder
         //
         DB::table('permissions')->insert(array(
             array(
-                'description' => 'Asignar rol de administrador a usuario',
+                'description' => 'user:update',
             ),
             array(
-                'description' => 'Crear nuevo genero de videojuego',
+                'description' => 'genre:write',
             ),
             array(
-                'descripcion' => 'Crear nuevo titulo de juego en sistema',
+                'descripcion' => 'title:write',
             ),
         ));
     }

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Review;
 
-class ControladorReview extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.

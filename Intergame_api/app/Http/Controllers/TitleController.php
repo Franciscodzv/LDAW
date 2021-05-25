@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Title;
-
-//Importar la facade para la clase DB
 use Illuminate\Support\Facades\DB;
-
-class ControladorTitulo extends Controller
+class TitleController extends Controller
 {
     /**
      * Display a listing of the resource.

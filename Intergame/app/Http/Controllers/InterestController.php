@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 //Importar el model
-use App\Models\Review;
+use App\Models\Preferencia;
 
-class ControladorReview extends Controller
+class InterestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class ControladorReview extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -27,17 +26,14 @@ class ControladorReview extends Controller
      */
     public function store(Request $request)
     {
-        //dd( $request->all());
-        $result=[
-            'title_id'=>$request->input('title_id'),
-            'description'=>$request->input('description'),
-        ];
- 
-         $r=Review::createReview($result);
         
-       if($r['success']==1){
+        $result=$request->input('id_title');
+       
+
+         $r=Preferencia::createTitulosInteres($result);
+        if($r['success']==1){
              return redirect('/')->with('status','exito');
-       }
+         }
     }
 
     /**
@@ -48,7 +44,7 @@ class ControladorReview extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**

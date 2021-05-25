@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 
 use App\Models\User;
-class ControladorAdmin extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ControladorAdmin extends Controller
      */
     public function index()
     {
-        return User::getUsers();
+        return User::getGuests();
     }
 
     /**

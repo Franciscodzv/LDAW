@@ -19,24 +19,24 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-use App\Http\Controllers\ControladorTitulo;
+use App\Http\Controllers\TitleController;
 
-Route::apiResource("titles", ControladorTitulo::class);
-
-
-use App\Http\Controllers\ControladorAdmin;
-
-Route::apiResource("users", ControladorAdmin::class);
-
-use App\Http\Controllers\ControladorGeneros;
-
-Route::apiResource("genres", ControladorGeneros::class);
-
-use App\Http\Controllers\ControladorReview;
-
-Route::apiResource("review", ControladorReview::class);
+Route::apiResource("titles", TitleController::class);
 
 
-use App\Http\Controllers\ControladorTitulosInteres;
+use App\Http\Controllers\AdminController;
 
-Route::apiResource("registrarTitulosInteres", ControladorTitulosInteres::class);
+Route::apiResource("users", AdminController::class);
+
+use App\Http\Controllers\GenreController;
+
+Route::apiResource("genres", GenreController::class);
+
+use App\Http\Controllers\ReviewController;
+
+Route::apiResource("review", ReviewController::class);
+
+
+use App\Http\Controllers\InterestController;
+
+Route::apiResource("registrarTitulosInteres", InterestController::class);

@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 //Importar la facade para la clase DB
 use Illuminate\Support\Facades\DB;
-class Preferencia extends Model
+
+class Preferences extends Model
 {
     use HasFactory;
     public $table="preferences"; 
@@ -20,9 +21,7 @@ class Preferencia extends Model
             'id_title'=> $id,
             'id_user'=>1//rbac
         ]);
-        
        }
-
         return 1;
         
     }
