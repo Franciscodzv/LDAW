@@ -14,7 +14,7 @@ class Titles extends Migration
     public function up()
     {
         Schema::create('titles', function (Blueprint $table) {
-            $table->id('id');
+            $table->id();
             $table->string('name');
             $table->text('description');
             $table->string('image');

@@ -16,10 +16,10 @@ class RolSeeder extends Seeder
     {
         DB::table('roles')->insert(array(
             array(
-                'description' => 'Administrator',
+                'description' => 'Admin',
             ),
             array(
-                'description' => 'Registrado',
+                'description' => 'Guest',
             ),
             
         ));

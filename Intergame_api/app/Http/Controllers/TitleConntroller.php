@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Title;
 
-class ControladorTitulo extends Controller
+class TitleConntroller extends Controller
 {
     /**
      * Display a listing of the resource.

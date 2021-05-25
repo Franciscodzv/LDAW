@@ -17,12 +17,12 @@ class Games extends Migration
             $table->id('id');
             $table->text('condition');
 
-            $table->foreignId('id_title')->references('id')->on('titles')
+            $table->foreignId('title_id')->references('id')->on('titles')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
-            $table->foreignId('id_user')->references('id')->on('users')
+            $table->foreignId('user_id')->references('id')->on('users')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');

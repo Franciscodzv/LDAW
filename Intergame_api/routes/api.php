@@ -19,16 +19,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-use App\Http\Controllers\ControladorTitulo;
+use App\Http\Controllers\TitleController;
 
-Route::apiResource("titles", ControladorTitulo::class);
+Route::apiResource("titles", TitleController::class);
 
 
-use App\Http\Controllers\ControladorAdmin;
+use App\Http\Controllers\AdminController;
 
-Route::apiResource("users", ControladorAdmin::class);
+Route::apiResource("users", AdminController::class);
 
-use App\Http\Controllers\ControladorGeneros;
+use App\Http\Controllers\GenreController;
 
-Route::apiResource("genres", ControladorGeneros::class);
+Route::apiResource("genres", GenreController::class);
 

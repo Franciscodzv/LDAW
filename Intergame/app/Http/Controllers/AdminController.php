@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Genre;
-class ControladorGeneros extends Controller
+//Importar el model
+use App\Models\Usuario;
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class ControladorGeneros extends Controller
      */
     public function index()
     {
-        return Genre::getGenres();
+        $user =Usuario::getGuests();
+        return view("game.altaAdministrador", ["users" => $user]);
     }
 
     /**
@@ -47,7 +49,11 @@ class ControladorGeneros extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    
+        Usuario::makeAdmin($id);
+
+         return redirect("/users");
+        //return redirect('/users')->with('success', 'User updated!');
     }
 
     /**

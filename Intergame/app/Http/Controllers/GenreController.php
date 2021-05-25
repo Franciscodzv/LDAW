@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 //Importar el model
 use App\Models\Categoria;
 
-class ControladorGeneros extends Controller
+class GenreController extends Controller
 {
     /**
      * Display a listing of the resource.

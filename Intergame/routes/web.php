@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ControladorTitulo;
-use App\Http\Controllers\ControladorAdmin;
-use App\Http\Controllers\ControladorGeneros;
+use App\Http\Controllers\TitleController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GenreController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,17 +65,17 @@ Route::get('/notificaciones',function(){
 
 
 
-Route::get("/",[ControladorTitulo::class,"index"]);
-Route::resource('titulos', ControladorTitulo::class)->except(["index"]);//->middleware('auth');
-Route::get('editarTitulos', [ControladorTitulo::class,"lista"]);//->middleware('auth');
+Route::get("/",[TitleController::class,"index"]);
+Route::resource('titulos', TitleController::class)->except(["index"]);//->middleware('auth');
+Route::get('editarTitulos', [TitleController::class,"lista"]);//->middleware('auth');
 
 
 
 //rutas admin
 
-Route::resource('users', ControladorAdmin::class);//->middleware('auth');
+Route::resource('users', AdminController::class);//->middleware('auth');
 
 //rutas generos
 
-Route::resource('genres', ControladorGeneros::class)->except(["index"]);//->middleware('auth');
-Route::get("registrarTitulo",[ControladorGeneros::class,"index"]);
+Route::resource('genres', GenreController::class)->except(["index"]);//->middleware('auth');
+Route::get("registrarTitulo",[GenreController::class,"index"]);
