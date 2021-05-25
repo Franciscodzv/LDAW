@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\InterestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,7 +40,7 @@ Route::get('/registrarTitulo', function(){
     return view('game.registrarJuego');
 });
 
-Route::get('/registrarTitulosInteres', function(){
+Route::get('/titulosInteres', function(){
     return view('game.titulosInteres');
 });
 Route::get('/escribirReview', function(){
@@ -69,6 +71,7 @@ Route::get("/",[TitleController::class,"index"]);
 Route::resource('titulos', TitleController::class)->except(["index"]);//->middleware('auth');
 Route::get('editarTitulos', [TitleController::class,"lista"]);//->middleware('auth');
 
+Route::get('TitulosInteres', [TitleController::class,"listaInteres"]);
 
 
 //rutas admin
@@ -79,3 +82,11 @@ Route::resource('users', AdminController::class);//->middleware('auth');
 
 Route::resource('genres', GenreController::class)->except(["index"]);//->middleware('auth');
 Route::get("registrarTitulo",[GenreController::class,"index"]);
+
+
+//rutas review
+
+Route::resource('review', ReviewController::class);//->middleware('auth');
+
+
+Route::resource('registrarTitulosInteres', InterestController::class);//->middleware('auth');

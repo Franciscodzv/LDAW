@@ -29,6 +29,13 @@ class TitleController extends Controller
         return view("game.editarTitulos", ["titulos" => $title]);
         //return view('/home');
     }
+    public function listaInteres()
+    {
+        
+        $title =Titulo::getTitles();
+        return view("game.titulosInteres", ["titulos" => $title]);
+        //return view('/home');
+    }
     /**
      * Show the form for creating a new resource.
      *

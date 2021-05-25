@@ -57,5 +57,8 @@ class Title extends Model
         return $title->genres()->save($genre);
         
     }
+
+    
+
    
 }

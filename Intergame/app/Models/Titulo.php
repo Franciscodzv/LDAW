@@ -51,4 +51,7 @@ class Titulo extends Model
 
     }
 
+    
+  
+
 }

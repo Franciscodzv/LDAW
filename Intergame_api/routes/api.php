@@ -32,3 +32,11 @@ use App\Http\Controllers\GenreController;
 
 Route::apiResource("genres", GenreController::class);
 
+use App\Http\Controllers\ReviewController;
+
+Route::apiResource("review", ReviewController::class);
+
+
+use App\Http\Controllers\InterestController;
+
+Route::apiResource("registrarTitulosInteres", InterestController::class);
