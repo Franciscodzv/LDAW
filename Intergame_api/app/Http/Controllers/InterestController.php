@@ -31,7 +31,7 @@ class InterestController extends Controller
     {
      
         $result=$request->input('id_title');
-       /* var_dump($result);
+       /*var_dump($result);
         die();*/
        if(Preferences::createTitulosInteres($result)){
            return ['success'=>1];
