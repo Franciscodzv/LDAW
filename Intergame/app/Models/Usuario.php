@@ -13,6 +13,17 @@ class Usuario extends Model implements Authenticatable
 {
     use HasFactory;
 
+    public static function getId($email){
+
+        $token = session('token');
+
+        $response = Http::withToken($token)->post(env("API_URL") . "id",[
+            'email' => $email,
+        ]);
+
+        return ($response->status() == 200) ? $response->json() : "";
+    }
+
     public static function getGuests(){
         //Consulta a la API
         //localhost:8001/api/books

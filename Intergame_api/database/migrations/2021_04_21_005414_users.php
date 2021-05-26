@@ -18,7 +18,7 @@ class Users extends Migration
             $table->string('email');
             $table->string('name');
             $table->string('password');
-            $table->foreignId('role_id')->references('id')->on('roles')
+            $table->foreignId('role_id')->references('id')->on('roles')->default(2)
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
