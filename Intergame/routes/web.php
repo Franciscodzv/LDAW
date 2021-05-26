@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\InterestController;
+use App\Http\Controllers\GameController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,3 +91,7 @@ Route::resource('review', ReviewController::class);//->middleware('auth');
 
 
 Route::resource('registrarTitulosInteres', InterestController::class);//->middleware('auth');
+
+
+
+Route::resource('games', GameController::class);

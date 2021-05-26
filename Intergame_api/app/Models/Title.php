@@ -22,6 +22,17 @@ class Title extends Model
         return $this->belongsToMany(Genre::class, "genres_titles");
     }
 
+    public function games()
+    {
+        return $this->belongsTo(Game::class);
+    }
+    public function preference()
+    {
+        return $this->hasMany(Preference::class);
+    }
+
+
+
     public static function getAllTitles(){
 
         //$books = self::all();

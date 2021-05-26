@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Preferencia;
 
-//Importar la facade para la clase DB
-use Illuminate\Support\Facades\DB;
+//Importar el model
+use App\Models\Titulo;
+//Importar el model
+use App\Models\Juego;
 
-class InterestController extends Controller
+class GameController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +19,8 @@ class InterestController extends Controller
      */
     public function index()
     {
-        
+        $title =Titulo::getTitles();
+        return view("game.registrarTitulo", ["titulos" => $title]);//aqui esta cambiado el de juego registra  un juego
     }
 
     /**
@@ -29,16 +31,17 @@ class InterestController extends Controller
      */
     public function store(Request $request)
     {
-     
-        $result=$request->input('id_title');
-       /* var_dump($result);
-        die();*/
-       if(Preferencia::createTitulosInteres($result)){
-           return ['success'=>1];
-       } 
-
-         return ['success'=>0];
-      
+        $result=[
+            'title_id'=>$request->input('title_id'),
+            'condition'=>$request->input('condition'),
+        ];
+       
+  
+        $r=Juego::createGame($result);
+        if($r['success']==1){
+            return redirect('/')->with('status','exito');
+        }
+         //return redirect('/')->with('status','fail');
     }
 
     /**

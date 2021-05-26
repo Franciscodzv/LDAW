@@ -15,7 +15,7 @@ class Preferencia extends Model
         $response = Http::post(env("API_URL") . "registrarTitulosInteres",[
             'id_title'=>$result
         ] );
-      dd($response->body());
+     
         //Devolver el resultado como un arreglo de PHP
         return $response->json();
 

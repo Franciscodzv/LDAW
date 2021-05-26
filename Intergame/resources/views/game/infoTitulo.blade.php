@@ -41,6 +41,7 @@
 
 
 
+
       <form action="{{route('review.store')}}" method="post" > 
     @csrf
         <div class="form-group ">
@@ -56,6 +57,37 @@
         <button class="btn btn-primary " type="submit">Agregar Reseña</button> 
       </form>
 
+<br>
+  
+      <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Titulo</th>
+          <th scope="col">Condición</th>
+          <th scope="col">Oferta</th>
+        </tr>
+      </thead>
+      <tbody>
+      @foreach($titulo["games"] as  $game)
+
+      <tr>
+      <th scope="row">{{$titulo["name"]}}</th>
+      <td>{{   $game['condition'] }}</td>
+      <td> <a class="btn btn-primary" href="{{ route()}}">  {{   $game['user_id'] }} Ofertar  {{   $titulo["id"] }} </a>   </td>
+      </tr>
+    
+    
+      
+    
+
+      @endforeach
+     
+     
+      
+     
+     
+        </tbody>
+    </table>
 
     </div>
   </div>

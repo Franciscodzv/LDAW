@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Title;
+use App\Models\Preferences;
+use App\Models\Game;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 class TitleController extends Controller
 {
@@ -51,12 +54,15 @@ class TitleController extends Controller
     public function show($id){
 
         $title = Title::where("id",$id)->first();
-
+       
         $output = [
             "id" => $title->id,
             "name" => $title->name,
             "reviews" => [],
             "genres" => [],
+            "games" => [],
+            "preferences" => [],
+            "users" => [],
             "description" => $title->description,
             "image" => $title->image,
         ];
@@ -69,8 +75,24 @@ class TitleController extends Controller
         }
 
         foreach($title->genres as $genre){
-            $output["genres"][] = $genre->getGenre($id);
+            $output["genres"]= $genre->getGenre($id);
         }
+        
+        
+        
+        $output["games"]=Game::where("title_id",$id)->get();
+       
+       
+         foreach($output['games'] as $game){
+            //$output["users"]=User::FindOrFail($game["user_id"]);
+            $output["preferences"][$game["user_id"]]= Preferences::where("user_id",$game["user_id"])->get();
+        }
+        foreach($output['games'] as $game){
+            //$output["users"]=User::FindOrFail($game["user_id"]);
+            $output["users"][$game["user_id"]]= User::where("id",$game["user_id"])->get();
+        }
+        //$title=Title::FindOrFail($output["games"]->id);
+   
 
         return $output;
 

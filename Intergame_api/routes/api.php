@@ -40,3 +40,7 @@ Route::apiResource("review", ReviewController::class);
 use App\Http\Controllers\InterestController;
 
 Route::apiResource("registrarTitulosInteres", InterestController::class);
+
+use App\Http\Controllers\GameController;
+
+Route::apiResource("games", GameController::class);

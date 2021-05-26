@@ -13,11 +13,16 @@ class Preferences extends Model
     public $table="preferences"; 
     public $timestamps = false;
     protected $fillable=['id_title','id_user'];
+
+    public function title(){
+        return $this->belongsTo(Title::class);
+    }
+
     public static function createTitulosInteres($result){
        
        
        foreach($result as $id){
-        $resultado=Preferencia::create([
+        $resultado=Preferences::create([
             'id_title'=> $id,
             'id_user'=>1//rbac
         ]);
