@@ -37,51 +37,34 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto d-flex">
-                        <li class="pr-4 ">
-                            <button type="button" class="btn btn-outline-success" onclick="window.location.href='/registrarJuego'">Registrar Juego</button>
-                        </li>
-                        <li class="pr-4"> 
-                            <button type="button" class="btn btn-outline-primary">Mis Juegos</button>
-                        </li>
-                        <li class="pr-4 ">
-                            <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='/registrarTitulo'">Registrar Título</button>
-                        </li>
-                        <li class="pr-4 d-flex flex-row align-items-center ">
-                            <i class="far fa-bell " style="font-size:20px;"></i>
-                        </li>
-
                         <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        @if (!(session('token')))
+                                <li class="nav-item pr-3">
+                                    <a class="btn btn-outline-secondary" href="{{ url('/login') }}">{{ __('Login') }}</a>
                                 </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <li class="nav-item pr-4">
+                                    <a class="btn btn-outline-primary" href="{{ url('/register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+                        @endif
+                        @if (session('token'))
+                            <li class="pr-4 ">
+                            <button type="button" class="btn btn-outline-success" onclick="window.location.href='/registrarJuego'">Registrar Juego</button>
                             </li>
-                        @endguest
+                            <li class="pr-4"> 
+                                <button type="button" class="btn btn-outline-primary">Mis Juegos</button>
+                            </li>
+                            @if(session('id') == 1)
+                            <li class="pr-4 ">
+                                <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='/registrarTitulo'">Registrar Título</button>
+                            </li>
+                            @endif
+                            <li class="pr-4 d-flex flex-row align-items-center ">
+                                <i class="far fa-bell " style="font-size:20px;"></i>
+                            </li>
+                            <li class="pr-4 ">
+                                <a href="{{ url('/logout') }}" class="btn btn-outline-secondary" >{{ __('logout') }}</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
 

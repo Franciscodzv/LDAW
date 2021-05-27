@@ -1,11 +1,19 @@
 <?php
 
 namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Database\Eloquent\Model;
 
 class Roles_Permisos extends Model
 {
-    use HasFactory;
+    public static function getRol($email){
+
+        $token = session('token');
+
+        $response = Http::withToken($token)->post(env("API_URL") . "rol",[
+            'email' => $email,
+        ]);
+
+        return ($response->status() == 200) ? $response->json() : "";
+    }
 }
