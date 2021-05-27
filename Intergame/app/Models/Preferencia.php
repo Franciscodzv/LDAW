@@ -11,11 +11,11 @@ class Preferencia extends Model
     use HasFactory;
 
     public static function  createTitulosInteres($result){
-        //dd($result);
+       
         $response = Http::post(env("API_URL") . "registrarTitulosInteres",[
             'id_title'=>$result
         ] );
-      dd($response->body());
+     // dd($result );
         //Devolver el resultado como un arreglo de PHP
         return $response->json();
 

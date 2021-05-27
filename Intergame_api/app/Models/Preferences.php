@@ -12,14 +12,19 @@ class Preferences extends Model
     use HasFactory;
     public $table="preferences"; 
     public $timestamps = false;
-    protected $fillable=['id_title','id_user'];
+    protected $fillable=['title_id','user_id'];
+
+    public function title(){
+        return $this->belongsTo(Title::class);
+    }
+
     public static function createTitulosInteres($result){
        
-       
+       //dd($result);
        foreach($result as $id){
-        $resultado=Preferencia::create([
-            'id_title'=> $id,
-            'id_user'=>1//rbac
+        $resultado=Preferences::create([
+            'title_id'=> $id,
+            'user_id'=>1//rbac
         ]);
        }
         return 1;

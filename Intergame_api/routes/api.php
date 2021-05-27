@@ -45,6 +45,7 @@ use App\Http\Controllers\UserController;
 
 Route::apiResource("registrarTitulosInteres", InterestController::class);
 
+<<<<<<< HEAD
 //rbac
 Route::post('/register', [UserController::class, "register"]);
 
@@ -74,3 +75,8 @@ Route::middleware('auth:sanctum')->post('/rol', [RolController::class, "index"])
 
 use App\Http\Controllers\Usuario;
 Route::middleware('auth:sanctum')->post('/id', [UserController::class, "index"]);
+=======
+use App\Http\Controllers\GameController;
+
+Route::apiResource("games", GameController::class);
+>>>>>>> a91d2ff040bc2c24e3f61a23c0603add0d531062

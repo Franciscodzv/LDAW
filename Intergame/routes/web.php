@@ -9,6 +9,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\GameController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,3 +101,5 @@ Route::get('/login',[RegisterController::class,'login'])->middleware('guest');
 Route::post('/login',[AuthController::class,'login'])->middleware('guest');
 Route::get('/logout',[AuthController::class,'logout'])->name('logout')->middleware('auth');
 Route::post('/register',[RegisterController::class,'create'])->middleware('guest');
+
+Route::resource('games', GameController::class);
