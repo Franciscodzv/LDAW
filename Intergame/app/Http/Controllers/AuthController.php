@@ -40,7 +40,7 @@ class AuthController extends Controller
             }
         }
 
-        return redirect('/login')->with('error', 'Email o contraseña incorrectos');
+        return redirect('/login')->with('status', 'Verifique que los datos sean correctos');
     }
 
     public function logout(Request $request){
