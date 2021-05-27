@@ -7,6 +7,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\OfferController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,11 +27,7 @@ Route::get('/Integrantes', function () {
     return view('integrantes');
 });
 
-
 Auth::routes();
-
-
-
 
 Route::group(['middleware' => 'auth'],  function () {
     return view('/home');
@@ -66,8 +63,6 @@ Route::get('/notificaciones',function(){
 });
 //rutas titulos
 
-
-
 Route::get("/",[TitleController::class,"index"]);
 Route::resource('titulos', TitleController::class)->except(["index"]);//->middleware('auth');
 Route::get('editarTitulos', [TitleController::class,"lista"]);//->middleware('auth');
@@ -95,3 +90,5 @@ Route::resource('registrarTitulosInteres', InterestController::class);//->middle
 
 
 Route::resource('games', GameController::class);
+
+Route::resource('offers', OfferController::class);

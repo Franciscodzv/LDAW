@@ -38,7 +38,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto d-flex">
                         <li class="pr-4 ">
-                            <button type="button" class="btn btn-outline-success" onclick="window.location.href='/registrarJuego'">Registrar Juego</button>
+                            <button type="button" class="btn btn-outline-success" onclick="window.location.href='/games'">Registrar Juego</button>
                         </li>
                         <li class="pr-4"> 
                             <button type="button" class="btn btn-outline-primary">Mis Juegos</button>

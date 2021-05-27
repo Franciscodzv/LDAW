@@ -35,7 +35,7 @@
             <select class="form-control" id="condition" name="condition" required>
             <option value="Nuevo" disabled selected>Selecciona una opcion</option>
               <option value="Nuevo">Nuevo</option>
-              <option value="SemiNuevo">SemiNuevo</option>
+              <option value="Semi-Nuevo">Semi-Nuevo</option>
               <option value="Usado">Usado</option>
         
             </select>

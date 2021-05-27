@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-8 offset-2">
 
-    <div class="row">
+    <div>
      <h1>{{$titulo["name"]}}</h1> 
     
     </div>
@@ -18,7 +18,11 @@
                     </div>
                 </div>
     </div>
-    <div class="form-group row">
+    <div class="text-right">
+      <a href="{{url('offers/'.$titulo['id'])}}" class="btn btn-success btn btn-lg text-dark ">Realizar Oferta</a>
+    </div>
+    <br><br>
+    <div class="">
         <label class=" col-form-label" for="descripcionJuego">{{$titulo["description"]}}</label>
           @if($errors->has('descripcionJuego'))
             <span class="invalid-feedback" role="alert">
@@ -56,38 +60,6 @@
         </div>
         <button class="btn btn-primary " type="submit">Agregar Reseña</button> 
       </form>
-
-<br>
-  
-      <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Titulo</th>
-          <th scope="col">Condición</th>
-          <th scope="col">Oferta</th>
-        </tr>
-      </thead>
-      <tbody>
-      @foreach($titulo["games"] as  $game)
-
-      <tr>
-      <th scope="row">{{$titulo["name"]}}</th>
-      <td>{{   $game['condition'] }}</td>
-      <td> <a class="btn btn-primary" href="{{ route()}}">  {{   $game['user_id'] }} Ofertar  {{   $titulo["id"] }} </a>   </td>
-      </tr>
-    
-    
-      
-    
-
-      @endforeach
-     
-     
-      
-     
-     
-        </tbody>
-    </table>
 
     </div>
   </div>

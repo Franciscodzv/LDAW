@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Game;
-use Illuminate\Support\Facades\DB;
-use App\Models\Title;
-class GameController extends Controller
+use App\Models\Juego;
+use App\Models\Titulo;
+
+class OfferController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,16 @@ class GameController extends Controller
     {
         //
     }
-    
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -27,15 +36,7 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        $result=[
-            'title_id'=>$request->input('title_id'),
-            'condition'=>$request->input('condition')
-        ];
-       if(Game::createGame($result)){
-           return ['success'=>1];
-       } 
-
-         return ['success'=>0];
+        //
     }
 
     /**
@@ -46,18 +47,24 @@ class GameController extends Controller
      */
     public function show($id)
     {
-        
-        $games = DB::table('games')->where('user_id', '!=', 1)->where('title_id', '=', $id)->get(); //todos los mario odyssey que esten registrados
+        $games = Juego::getGame($id);
 
-        $title = Title::where('id',$id)->get(); //mande a la pantalla del juego que quieres
+        $titles =Titulo::getTitles();
 
-        $offers = DB::table('games')->join('titles','games.title_id', '=', 'titles.id')
-                                      ->where('games.user_id', '=', 1)
-                                      ->select('titles.name','games.id','games.condition')->get();
-        
-        $data = ["games" => $games, "title" => $title, 'offers'=> $offers];
+        $data = [$games, $titles];
 
-        return $data;
+        return view('game.oferta',['games'=>$games]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
     /**

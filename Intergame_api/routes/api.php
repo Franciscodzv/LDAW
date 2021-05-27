@@ -44,3 +44,7 @@ Route::apiResource("registrarTitulosInteres", InterestController::class);
 use App\Http\Controllers\GameController;
 
 Route::apiResource("games", GameController::class);
+
+use App\Http\Controllers\OfferController;
+
+Route::apiResource('offers',OfferController::class);
