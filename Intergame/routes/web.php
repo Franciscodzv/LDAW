@@ -1,11 +1,14 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\InterestController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\OfferController;
 /*
@@ -27,7 +30,6 @@ Route::get('/Integrantes', function () {
     return view('integrantes');
 });
 
-Auth::routes();
 
 Route::group(['middleware' => 'auth'],  function () {
     return view('/home');
@@ -88,6 +90,12 @@ Route::resource('review', ReviewController::class);//->middleware('auth');
 Route::resource('registrarTitulosInteres', InterestController::class);//->middleware('auth');
 
 
+//rbac
+Route::get('/register',[RegisterController::class,'index']);//->middleware('guest');
+Route::get('/login',[RegisterController::class,'login'])->middleware('guest');
+Route::post('/login',[AuthController::class,'login'])->middleware('guest');
+Route::get('/logout',[AuthController::class,'logout'])->name('logout')->middleware('auth');
+Route::post('/register',[RegisterController::class,'create'])->middleware('guest');
 
 Route::resource('games', GameController::class);
 
