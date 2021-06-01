@@ -34,9 +34,9 @@ class ReviewController extends Controller
         ];
  
          $r=Review::createReview($result);
-        
+        $id=$request->input('title_id');
        if($r['success']==1){
-             return redirect('/')->with('status','exito');
+             return redirect('/titulos/'.$id)->with('status','Comentario registrado con exito');
        }
     }
 

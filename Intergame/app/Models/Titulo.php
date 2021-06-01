@@ -37,7 +37,7 @@ class Titulo extends Model
             'image'=>$result['image']
 
         ] );
-      
+        //dd($response->body());  
         //Devolver el resultado como un arreglo de PHP
         return $response->json();
 

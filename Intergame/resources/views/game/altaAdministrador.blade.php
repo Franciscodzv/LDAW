@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 
   <div class="row">
     <div class="col-8 offset-2">
@@ -34,7 +39,7 @@
               <td> {{ $user['name'] }}</td>
              
               <td class="d-flex justify-content-center "> 
-                <form action="{{ url('users/'.$user['id']) }} " method="post">
+                <form action="{{ route('users.update',$user['id']) }} " method="post">
                   @csrf
                   @method('PUT')
                   <button type="submit" class="btn btn-primary"   >Agregar</button> 

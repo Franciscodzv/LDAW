@@ -27,6 +27,11 @@ class Offers extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
             //$table->timestamps();
+
+            $table->foreignId('user_id')->references('id')->on('users')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
         });
     }
 

@@ -78,3 +78,11 @@ Route::middleware('auth:sanctum')->post('/id', [UserController::class, "index"])
 use App\Http\Controllers\GameController;
 
 Route::apiResource("games", GameController::class);
+
+use App\Http\Controllers\OfferController;
+
+Route::apiResource('offers',OfferController::class);
+
+use App\Http\Controllers\NotificationsController;
+
+Route::apiResource('notifications',NotificationsController::class);

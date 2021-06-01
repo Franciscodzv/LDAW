@@ -10,6 +10,8 @@ use App\Http\Controllers\InterestController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\OfferController;
+use App\Http\Controllers\NotificationsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,10 +30,6 @@ Route::get('/', function () {
 Route::get('/Integrantes', function () {
     return view('integrantes');
 });
-
-
-
-
 
 
 Route::group(['middleware' => 'auth'],  function () {
@@ -68,8 +66,6 @@ Route::get('/notificaciones',function(){
 });
 //rutas titulos
 
-
-
 Route::get("/",[TitleController::class,"index"]);
 Route::resource('titulos', TitleController::class)->except(["index"]);//->middleware('auth');
 Route::get('editarTitulos', [TitleController::class,"lista"]);//->middleware('auth');
@@ -103,3 +99,7 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout')->middlewa
 Route::post('/register',[RegisterController::class,'create'])->middleware('guest');
 
 Route::resource('games', GameController::class);
+
+Route::resource('offers', OfferController::class);
+
+Route::resource('notifications', NotificationsController::class);

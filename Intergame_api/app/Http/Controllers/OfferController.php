@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-//Importar el model
-use App\Models\Titulo;
-
-class TitleController extends Controller
+use Illuminate\Support\Facades\DB;
+use App\Models\Offer;
+class OfferController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,26 +14,9 @@ class TitleController extends Controller
      */
     public function index()
     {
-        $title =Titulo::getTitles();
-        return view("home", ["titulos" => $title]);
-        //return view('/home');
+        //
     }
 
-
-    public function lista()
-    {
-        
-        $title =Titulo::getTitles();
-        return view("game.editarTitulos", ["titulos" => $title]);
-        //return view('/home');
-    }
-    public function listaInteres()
-    {
-        
-        $title =Titulo::getTitles();
-        return view("game.titulosInteres", ["titulos" => $title]);
-        //return view('/home');
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -53,22 +34,17 @@ class TitleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { 
-      $result=[
-          'name'=>$request->input('name'),
-          'genre'=>$request->input('genre'),
-          'description'=>$request->input('description'),
-          'image'=>$request->input('image')
-      ];
-     
+    {
+        $result=[
+            'gameOwn_id'=>$request->input('gameOwn_id'),
+            'gameOffer_id'=>$request->input('gameOffer_id'),
+        ];
+        
+       if(Offer::createOffer($result)){
+           return ['success'=>1];
+       } 
 
-       $r=Titulo::createTitle($result);
-       if($r['success']==1){
-           return redirect('/')->with('status','Titulo registrado con Exito');
-       }
-
-       /*$title =Titulo::getTitles();
-        return view("home", ["titulos" => $title]);*/
+         return ['success'=>0];
     }
 
     /**
@@ -79,10 +55,7 @@ class TitleController extends Controller
      */
     public function show($id)
     {
-        $titulo = Titulo::getTitle($id);
-
-        return view("/game/infoTitulo", ["titulo" => $titulo]);
-
+       
     }
 
     /**
@@ -116,7 +89,6 @@ class TitleController extends Controller
      */
     public function destroy($id)
     {
-        Titulo::deleteTitle($id);
-        return redirect("/editarTitulos")->with('status','Titulo eliminado con exito');;
+        //
     }
 }

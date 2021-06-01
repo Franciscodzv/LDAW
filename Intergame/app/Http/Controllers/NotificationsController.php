@@ -1,16 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
-
-//Importar el model
-use App\Models\Titulo;
-//Importar el model
-use App\Models\Juego;
-
-class GameController extends Controller
+use App\Models\Offer;
+class NotificationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +13,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        $title =Titulo::getTitles();
-        return view("game.registrarTitulo", ["titulos" => $title]);//aqui esta cambiado el de juego registra  un juego
+        //
     }
 
     /**
@@ -31,16 +24,7 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        $result=[
-            'title_id'=>$request->input('title_id'),
-            'condition'=>$request->input('condition'),
-        ];
-       
-  
-        $r=Juego::createGame($result);
-        if($r['success']==1){
-            return redirect('/')->with('status','Juego fisico registrado con exito');
-        }
+        //
     }
 
     /**
@@ -51,7 +35,13 @@ class GameController extends Controller
      */
     public function show($id)
     {
-        //
+        $offers = Offer::getNotifications($id);
+
+            //var_dump($offers);
+           // die();
+           //dd($offers);
+          // var_dump($offers["own"][0][0]["id"]);
+        return view('game.notificaciones',['offers'=>$offers]);
     }
 
     /**
@@ -74,6 +64,9 @@ class GameController extends Controller
      */
     public function destroy($id)
     {
-        //
+         
+         if(Offer::deleteOffer($id)){
+             return redirect('/')->with('status','Se ha completado con exito');
+         }
     }
 }
