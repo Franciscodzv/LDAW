@@ -2,45 +2,52 @@
 
 @section('content')
 <div class="container">
-  <form action="">
-  <div class="row">
-    <div class="col-8 offset-2">
+  
 
-    <div class="row">
-     <h1>Ofertas</h1> 
-    </div>
+      <div class="row">
+     
+        <div class="col-lg-8  ">
+          <h1>Ofertas</h1> 
+        </div>
+      </div>
+
+  <div class="row flex">
+    <div class="col-lg-12  col-xs-12 table-responsive">
+
     <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Juego Propio</th>
+      <th scope="col">Condicion de mi Juego</th>
+      <th scope="col">Juego Ofrecido</th>
+      <th scope="col">Condicion del Juego Ofrecido</th>
+      <th scope="col">Aceptar/Rechazar</th>
+    </tr>
+  </thead>
     <tbody>
+    @foreach($offers as   $id => $offer) 
         <tr>
-        
-            <td>Juego a cambiar</td>
-            <td>Oferta</td>
-            <td><button class="btn btn-success text-dark">Aceptar</button> <!--1:50:30 tutorial laravel--></td>
-            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+            <td>  {{$offer["name"]}}</td>
+            <td>{{$offer["condition"]}}</td>
+            <td>{{$offer["nombreOfrecido"]}}</td>
+            <td>{{$offer["condicionOfrecida"]}}</td>
+            <td> <form action="{{ url("notifications/{$offer['id_oferta']}") }}" method="post"> @csrf
+                  @method('DELETE')
+            <input type="text" value='{{$offer["id_oferta"]}}' name="id" id="id" hidden>
+            <button class="btn btn-success text-dark"  type="submit">Aceptar</button> 
+            <button type="submit" class="btn btn-danger">Eliminar</button></form> </td>
         </tr>
-        <tr>
-        
-            <td>Juego a cambiar</td>
-            <td>Oferta</td>
-            <td><button class="btn btn-success text-dark">Aceptar</button> <!--1:50:30 tutorial laravel--></td>
-            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
-        <tr>
-        
-            <td>Juego a cambiar</td>
-            <td>Oferta</td>
-            <td><button class="btn btn-success text-dark">Aceptar</button> <!--1:50:30 tutorial laravel--></td>
-            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
+        @endforeach
     </tbody>
     </table>
 
-      
+   
+  
+   
 
     </div>
   </div>
-  
-  </form>
+ 
   
 </div>
 @endsection

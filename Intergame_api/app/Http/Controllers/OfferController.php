@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\Offer;
 class OfferController extends Controller
 {
     /**
@@ -34,7 +35,16 @@ class OfferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $result=[
+            'gameOwn_id'=>$request->input('gameOwn_id'),
+            'gameOffer_id'=>$request->input('gameOffer_id'),
+        ];
+        
+       if(Offer::createOffer($result)){
+           return ['success'=>1];
+       } 
+
+         return ['success'=>0];
     }
 
     /**
@@ -45,7 +55,7 @@ class OfferController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**

@@ -11,6 +11,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\NotificationsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,3 +101,5 @@ Route::post('/register',[RegisterController::class,'create'])->middleware('guest
 Route::resource('games', GameController::class);
 
 Route::resource('offers', OfferController::class);
+
+Route::resource('notifications', NotificationsController::class);

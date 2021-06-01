@@ -49,11 +49,11 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-    
+   
         Usuario::makeAdmin($id);
 
-         return redirect("/users");
-        //return redirect('/users')->with('success', 'User updated!');
+         return redirect("/users")->with('status', 'Administrador creado con exito');
+        
     }
 
     /**

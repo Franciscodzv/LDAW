@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Juego;
 use App\Models\Titulo;
+use App\Models\Offer;
 
 class OfferController extends Controller
 {
@@ -36,7 +37,20 @@ class OfferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+      
+        $result=[
+            'gameOwn_id'=>$request->input('gameOwn_id'),
+            'gameOffer_id'=>$request->input('gameOffer_id'),
+            
+        ];
+        //dd($result);
+       
+  
+         $r=Offer::createOffer($result);
+         if($r['success']==1){
+             return redirect('/')->with('status','exito');
+         }
     }
 
     /**

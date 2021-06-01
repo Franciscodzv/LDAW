@@ -82,3 +82,7 @@ Route::apiResource("games", GameController::class);
 use App\Http\Controllers\OfferController;
 
 Route::apiResource('offers',OfferController::class);
+
+use App\Http\Controllers\NotificationsController;
+
+Route::apiResource('notifications',NotificationsController::class);

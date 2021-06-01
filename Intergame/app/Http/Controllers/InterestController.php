@@ -32,7 +32,7 @@ class InterestController extends Controller
 
          $r=Preferencia::createTitulosInteres($result);
         if($r['success']==1){
-             return redirect('/')->with('status','exito');
+             return redirect('/')->with('status','Titulos de interes registrados con exito');
          }
     }
 

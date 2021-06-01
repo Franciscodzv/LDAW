@@ -30,25 +30,27 @@
             </div>
     <div class="row">
         <label class="col-form-label" for="imagenJuego">Condicion:</label>
+
+        </div>
         <div class="form-group">
           
             <select class="form-control" id="condition" name="condition" required>
-            <option value="Nuevo" disabled selected>Selecciona una opcion</option>
+            <option  disabled selected>Selecciona una opcion</option>
               <option value="Nuevo">Nuevo</option>
               <option value="Semi-Nuevo">Semi-Nuevo</option>
               <option value="Usado">Usado</option>
         
             </select>
-          </div>
+          
              
           
-      </div>
+     
   
 
-      <div class="row pt-5">
+      <div class="row pt-3">
             <button class="btn btn-primary">Registrar Juego</button> <!--1:50:30 tutorial laravel-->
       </div>
-
+      </div>
       </form > 
 
     </div>

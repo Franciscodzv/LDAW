@@ -73,10 +73,10 @@ class User extends Model
     }
 
 
-    public static function getGuest(){
+    public static function getGuests(){
 
         $query = DB::table("users as u")
-        ->where("u.id_role",2);
+        ->where("u.role_id",2);
       
         $users = $query->get();
 
@@ -100,7 +100,7 @@ class User extends Model
 
         $query = DB::table("users as u")
         ->where("u.id",$id)
-        ->update(['u.id_role' => 1]);
+        ->update(['u.role_id' => 1]);
         
     }
 

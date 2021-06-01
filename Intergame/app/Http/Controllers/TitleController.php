@@ -64,7 +64,7 @@ class TitleController extends Controller
 
        $r=Titulo::createTitle($result);
        if($r['success']==1){
-           return redirect('/')->with('status','exito');
+           return redirect('/')->with('status','Titulo registrado con Exito');
        }
 
        /*$title =Titulo::getTitles();
@@ -117,6 +117,6 @@ class TitleController extends Controller
     public function destroy($id)
     {
         Titulo::deleteTitle($id);
-        return redirect("/editarTitulos");
+        return redirect("/editarTitulos")->with('status','Titulo eliminado con exito');;
     }
 }

@@ -6,6 +6,7 @@
       <div class="row">
         <h1>Realizar Oferta</h1> 
       </div>
+      </div>
       <br><br>
       <h1 class="text-center">
         <div class="col-8 offset-2">
@@ -20,47 +21,38 @@
       </div>
         @endforeach
       <br><br>
-     
-      <table class="table table-dark">
-      <thead class="table table-dark">
-        <th>
-          Condición del Juego
-        </th>
-        <th>
-          Juego a Ofertar
-        </th>
-      </thead>
-      <tbody>
+      <div class="col-8 offset-2">
+   
+
       @foreach($games['games'] as $game)
-       <tr>
-        <td>
-          {{$game['condition']}}
-          <td>
-            <select class="form-select" name="titles" id="titles">
-              <option value="" selected>Selecciona Un Juego a Ofertar</option>
+      <div class="card mt-3">
+      <form  action="{{route('offers.store')}}" method="post">
+        @csrf
+        <input type="text"  value=" {{$game['id']}}" name="gameOwn_id"  id="gameOwn_id" hidden>
+         
+        <div class="card-header">
+        Condicion del juego:{{$game['condition']}} 
+        </div>
+        <div class="card-body">
+          
+          <p class="card-text">
+              
+          Seleccion el juego que quieres cambiar:
+            <select  class="form-control" name="gameOffer_id" id="gameOffer_id">
+              <option selected>Selecciona Un Juego a Ofertar</option>
               @foreach($games['offers'] as $offer)
-              <option value="">{{$offer['name']}}</option>
+              <option value="{{$offer['id']}}"  >{{$offer['name']}}</option>
               @endforeach
             </select>
-          </td>
-        </td>
-       
+         
+            </p>
+          <button type="submit" class="btn btn-primary">Ofertar</button>
+        </div>
+        </form>
+      </div>
       @endforeach
-
-      
-
-        
-
-      
-
-
-
-      </tr>
-      </tbody>
-      
-
-      
-      </table>
-    </div>
+      </div>
+   
 </div>
+
 @endsection
