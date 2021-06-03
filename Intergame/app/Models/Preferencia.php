@@ -13,8 +13,10 @@ class Preferencia extends Model
     public static function  createTitulosInteres($result){
        
         $response = Http::post(env("API_URL") . "registrarTitulosInteres",[
-            'id_title'=>$result
+            'usedr_id' => $result['user_id'],
+            'title_id'=>$result['title_id'],
         ] );
+      
      // dd($result );
         //Devolver el resultado como un arreglo de PHP
         return $response->json();

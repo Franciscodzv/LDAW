@@ -21,10 +21,10 @@ class Preferences extends Model
     public static function createTitulosInteres($result){
        
        //dd($result);
-       foreach($result as $id){
+       foreach($result['title_id'] as $id){
         $resultado=Preferences::create([
-            'title_id'=> $id,
-            'user_id'=>1//rbac
+            'title_id'=>$result['title_id'],
+            'user_id'=>$result['user_id']
         ]);
        }
         return 1;

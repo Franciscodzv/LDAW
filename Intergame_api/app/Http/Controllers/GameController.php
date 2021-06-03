@@ -28,6 +28,7 @@ class GameController extends Controller
     public function store(Request $request)
     {
         $result=[
+            'user_id'=>$request->input('user_id'),
             'title_id'=>$request->input('title_id'),
             'condition'=>$request->input('condition')
         ];
@@ -44,15 +45,15 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($request)
     {
         
-        $games = DB::table('games')->where('user_id', '!=', 1)->where('title_id', '=', $id)->get(); //todos los mario odyssey que esten registrados
+        $games = DB::table('games')->where('user_id', '!=', $request->input('user_id'))->where('title_id', '=', $request->input('title_id'))->get(); //todos los mario odyssey que esten registrados
 
-        $title = Title::where('id',$id)->get(); //mande a la pantalla del juego que quieres
+        $title = Title::where('id',$request->input('title_id'))->get(); //mande a la pantalla del juego que quieres
 
         $offers = DB::table('games')->join('titles','games.title_id', '=', 'titles.id')
-                                      ->where('games.user_id', '=', 1)
+                                      ->where('games.user_id', '=', $request->input('user_id'))
                                       ->select('titles.name','games.id','games.condition')->get();
         
         $data = ["games" => $games, "title" => $title, 'offers'=> $offers];

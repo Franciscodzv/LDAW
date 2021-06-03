@@ -42,7 +42,6 @@ class OfferController extends Controller
         $result=[
             'gameOwn_id'=>$request->input('gameOwn_id'),
             'gameOffer_id'=>$request->input('gameOffer_id'),
-            
         ];
         //dd($result);
        

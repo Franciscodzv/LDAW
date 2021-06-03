@@ -31,6 +31,7 @@ class ReviewController extends Controller
         $result=[
             'title_id'=>$request->input('title_id'),
             'description'=>$request->input('description'),
+            'user_id'=>session('id'),
         ];
  
          $r=Review::createReview($result);

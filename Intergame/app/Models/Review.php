@@ -15,6 +15,7 @@ class Review extends Model
         $response = Http::post(env("API_URL") . "review",[
             'title_id'=>$result['title_id'],
             'description'=>$result['description'],
+            'user_id'=>$result['user_id'],
 
         ] );
        // dd( $response->json());

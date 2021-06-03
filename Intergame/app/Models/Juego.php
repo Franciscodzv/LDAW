@@ -12,6 +12,7 @@ class Juego extends Model
     public static function createGame($result){
 
         $response = Http::post(env("API_URL") . "games",[
+            'usedr_id' => $result['user_id'],
             'title_id'=>$result['title_id'],
             'condition'=>$result['condition']
 

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if ((session('id')) == 1)
 <div class="container">
  
   <div class="row">
@@ -78,4 +79,5 @@
 
   
 </div>
+@endif
 @endsection

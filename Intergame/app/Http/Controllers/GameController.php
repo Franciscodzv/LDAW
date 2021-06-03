@@ -32,6 +32,7 @@ class GameController extends Controller
     public function store(Request $request)
     {
         $result=[
+            'user_id' => session('id'),
             'title_id'=>$request->input('title_id'),
             'condition'=>$request->input('condition'),
         ];

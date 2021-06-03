@@ -59,7 +59,7 @@
                             </li>
                             @endif
                             <li class="pr-4 d-flex flex-row align-items-center ">
-                                <i class="far fa-bell " style="font-size:20px;"></i>
+                                <button type="button" class="far fa-bell" href="{{ route('notifications.show', session('id')) }}" style="font-size:20px;"></button>
                             </li>
                             <li class="pr-4 ">
                                 <a href="{{ url('/logout') }}" class="btn btn-outline-secondary" >{{ __('logout') }}</a>

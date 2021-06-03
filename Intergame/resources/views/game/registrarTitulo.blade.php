@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if ((session('token')))
 <div class="container">
 
   <div class="row">
@@ -43,10 +44,6 @@
             </select>
           
              
-          
-     
-  
-
       <div class="row pt-3">
             <button class="btn btn-primary">Registrar Juego</button> <!--1:50:30 tutorial laravel-->
       </div>
@@ -59,4 +56,5 @@
 
   
 </div>
+@endif
 @endsection

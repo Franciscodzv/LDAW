@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if ((session('token')))
 <div class="container">
     <div class="col-8 offset-2">
       <div class="row">
@@ -54,5 +55,5 @@
       </div>
    
 </div>
-
+@endif
 @endsection

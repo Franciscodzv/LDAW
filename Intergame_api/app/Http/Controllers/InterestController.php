@@ -30,7 +30,10 @@ class InterestController extends Controller
     public function store(Request $request)
     {
      
-        $result=$request->input('id_title');
+        $result=[
+            'user_id'=>$request->input('user_id'),
+            'title_id'=>$request->input('title_id')
+        ];
        /*var_dump($result);
         die();*/
        if(Preferences::createTitulosInteres($result)){

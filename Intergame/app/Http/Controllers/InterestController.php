@@ -27,8 +27,10 @@ class InterestController extends Controller
     public function store(Request $request)
     {
         
-        $result=$request->input('id_title');
-       
+        $result=[
+            'user_id' => session('id'),
+            'title_id'=>$request->input('title_id'),
+        ];
 
          $r=Preferencia::createTitulosInteres($result);
         if($r['success']==1){

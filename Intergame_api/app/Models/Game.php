@@ -23,7 +23,7 @@ class Game extends Model
         $game = Game::create([
             'condition'=>$result['condition'],
             'title_id'=>$result['title_id'],
-            'user_id'=>1
+            'user_id'=>$result['user_id']
         ]);
         return 1;
     }
