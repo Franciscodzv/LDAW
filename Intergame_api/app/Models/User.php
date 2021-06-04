@@ -11,10 +11,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 //use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
-
+use Laravel\Sanctum\HasApiTokens;
 class User extends Model 
 {
-    use HasFactory, Notifiable;//HasApiTokens;
+    use HasFactory, Notifiable ,HasApiTokens;//HasApiTokens;
 
 
         /**
