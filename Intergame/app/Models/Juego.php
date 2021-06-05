@@ -12,12 +12,12 @@ class Juego extends Model
     public static function createGame($result){
 
         $response = Http::post(env("API_URL") . "games",[
-            'usedr_id' => $result['user_id'],
+            'user_id' => $result['user_id'],
             'title_id'=>$result['title_id'],
             'condition'=>$result['condition']
 
         ]);
-      
+      //dd($response->body());
         //Devolver el resultado como un arreglo de PHP
         return $response->json();
 
@@ -26,7 +26,7 @@ class Juego extends Model
     public static function getGame($id)
     {
         $response = Http::get(env("API_URL") . "games" ."/$id");
-
+       // dd($response);
         return $response->json();
     }
 }

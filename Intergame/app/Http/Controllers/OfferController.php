@@ -65,7 +65,7 @@ class OfferController extends Controller
         $titles =Titulo::getTitles();
 
         $data = [$games, $titles];
-
+      // dd($games);
         return view('game.oferta',['games'=>$games]);
     }
 

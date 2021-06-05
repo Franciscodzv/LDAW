@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if(session('id') == 1)
+@if(session('rol') == 1)
 <div class="container">
 @if (session('status'))
     <div class="alert alert-success">

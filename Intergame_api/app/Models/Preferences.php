@@ -23,7 +23,7 @@ class Preferences extends Model
        //dd($result);
        foreach($result['title_id'] as $id){
         $resultado=Preferences::create([
-            'title_id'=>$result['title_id'],
+            'title_id'=>$id,
             'user_id'=>$result['user_id']
         ]);
        }

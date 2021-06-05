@@ -21,7 +21,7 @@
 
 
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="{{$title['id'] }}" value="{{$title['id'] }}" name="id_title[]">
+      <input class="form-check-input" type="checkbox" id="{{$title['id'] }}" value="{{$title['id'] }}" name="title_id[]">
       <label class="form-check-label" for="inlineCheckbox2">{{$title['name'] }}</label>
     </div>
 
