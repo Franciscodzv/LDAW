@@ -49,8 +49,19 @@ class GameController extends Controller
     {
         /*var_dump( $id);
         die();*/
+        $result = [];
         $games = DB::table('games')->where('user_id', '!=', 1)->where('title_id', '=', $id)->get(); //todos los mario odyssey que esten registrados
-
+        $i=0;
+        foreach($games as $game){
+            $name=DB::table('users')->where("id","=", $game->user_id)->select('name')->get();
+           // $game+=["name" =>$name[0]->name];
+            //$game+=array('bar' => '1234');
+            $games[$i]->user_id=$name[0]->name;
+            $i++;
+           /* var_dump($games[0]);
+            die();*/
+           // $result[$game->id] +=  ["id_oferta" =>$name[0]->name];
+        }
         $title = Title::where('id',$id)->get(); //mande a la pantalla del juego que quieres
 
         $offers = DB::table('games')->join('titles','games.title_id', '=', 'titles.id')
@@ -60,6 +71,7 @@ class GameController extends Controller
         $data = ["games" => $games, "title" => $title, 'offers'=> $offers];
 
         return $data;
+      //  return $name[0]->name;
         /*$games = DB::table('games')->where('user_id', '!=', $request->input('user_id'))->where('title_id', '=', $request->input('title_id'))->get(); //todos los mario odyssey que esten registrados
 
         
