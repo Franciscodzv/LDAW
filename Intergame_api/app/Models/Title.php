@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+//Importar el cliente de HTTP
+use Illuminate\Support\Facades\Http;
 //Importar la facade para la clase DB
 use Illuminate\Support\Facades\DB;
 class Title extends Model
@@ -52,7 +53,7 @@ class Title extends Model
             $result[$title->id] = $titleArray;
 
         }
-
+       // $result[$title->id+1] = Http::get(env("api.openweathermap.org/data/2.5/weather?q=queretaro&appid=dd21f0e46cadbf0f20cc24a22e2aca97"));
         return $result;
     }
     public static function createTitle($result){

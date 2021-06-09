@@ -12,6 +12,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\NotificationsController;
+use App\Http\Controllers\WeatherController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -103,3 +104,5 @@ Route::resource('games', GameController::class);
 Route::resource('offers', OfferController::class);
 
 Route::resource('notifications', NotificationsController::class);
+
+Route::resource('weather', WeatherController::class);

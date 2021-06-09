@@ -37,6 +37,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto d-flex">
+                        <li class="nav-item pr-4">
+                                        <a class="btn btn-outline-primary" href="weather">Weather</a>
+                        </li>
                         <!-- Authentication Links -->
                         @if (!(session('token')))
                                 <li class="nav-item pr-3">
