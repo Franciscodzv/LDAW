@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 //Importar el model
 use App\Models\Titulo;
-
+use Illuminate\Support\Facades\Http;
+Use \Carbon\Carbon;
 class TitleController extends Controller
 {
     /**
@@ -17,7 +18,15 @@ class TitleController extends Controller
     public function index()
     {
         $title =Titulo::getTitles();
-        return view("home", ["titulos" => $title]);
+        $response = Http::get("http://api.openweathermap.org/data/2.5/weather?q=queretaro&appid=dd21f0e46cadbf0f20cc24a22e2aca97");
+        //Devolver el resultado como un arreglo de PHP
+        $weather= $response->json();
+        $date= Carbon::now()->toRfc850String();
+        $porciones = explode(" ", $date);
+        $date = $porciones[0]." ".$porciones[1]; 
+
+
+        return view("home", ["titulos" => $title,"weather" => $weather,"date"=>  $date]);
         //return view('/home');
     }
 

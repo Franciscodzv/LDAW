@@ -8,6 +8,7 @@ use App\Models\Preferences;
 use App\Models\Game;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+
 class TitleController extends Controller
 {
     /**
@@ -16,8 +17,8 @@ class TitleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return Title::getAllTitles();
+    { 
+       return Title::getAllTitles();
     }
 
     /**

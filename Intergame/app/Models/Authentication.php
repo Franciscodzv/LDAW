@@ -11,7 +11,7 @@ class Authentication {
             'password' => $password,
             'device_name' => $device
         ]);
-        
+        //dd($response->body());
         return ($response->status() == 200) ? $response->json() : "";
     }
 

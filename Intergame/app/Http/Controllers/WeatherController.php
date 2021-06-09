@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
-//Importar el model
-use App\Models\Titulo;
-//Importar el model
-use App\Models\Juego;
-
-class GameController extends Controller
+//Importar el cliente de HTTP
+use Illuminate\Support\Facades\Http;
+Use \Carbon\Carbon;
+class WeatherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +15,14 @@ class GameController extends Controller
      */
     public function index()
     {
-        $title =Titulo::getTitles();
-        return view("game.registrarTitulo", ["titulos" => $title]);//aqui esta cambiado el de juego registra  un juego
+        $response = Http::get("http://api.openweathermap.org/data/2.5/weather?q=queretaro&appid=dd21f0e46cadbf0f20cc24a22e2aca97");
+        //Devolver el resultado como un arreglo de PHP
+        $weather= $response->json();
+        $date= Carbon::now()->toDateString();
+        $porciones = explode(" ", $date);
+        //$date = $porciones[0] .  $porciones[1]  ; 
+         
+        return view("weather", ["weather" => $weather,"date"=> $porciones[0]]);
     }
 
     /**
@@ -31,17 +33,7 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        $result=[
-            'user_id' => session('id'),
-            'title_id'=>$request->input('title_id'),
-            'condition'=>$request->input('condition'),
-        ];
-       
-  
-        $r=Juego::createGame($result);
-        if($r['success']==1){
-            return redirect('/')->with('status','Juego fisico registrado con exito');
-        }
+        //
     }
 
     /**

@@ -37,6 +37,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto d-flex">
+                        <li class="nav-item pr-4">
+                                        <a class="btn btn-outline-primary" href="weather">Weather</a>
+                        </li>
                         <!-- Authentication Links -->
                         @if (!(session('token')))
                                 <li class="nav-item pr-3">
@@ -51,15 +54,23 @@
                             <button type="button" class="btn btn-outline-success" onclick="window.location.href='/games'">Registrar Juego</button>
                             </li>
                             <li class="pr-4"> 
-                                <button type="button" class="btn btn-outline-primary">Mis Juegos</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="window.location.href='/TitulosInteres'">Mis preferencias</button>
                             </li>
-                            @if(session('id') == 1)
+                            @if(session('rol') == 1)
                             <li class="pr-4 ">
                                 <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='/registrarTitulo'">Registrar Título</button>
                             </li>
+                            
+                            <li class="pr-4 ">
+                                <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='/editarTitulos'">Eliminar Titulos</button>
+                            </li>
+                          
+                            <li class="pr-4 ">
+                                <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='/users'">Alta Administrador</button>
+                            </li>
                             @endif
                             <li class="pr-4 d-flex flex-row align-items-center ">
-                                <i class="far fa-bell " style="font-size:20px;"></i>
+                                <button type="button" class="far fa-bell" onclick="window.location.href='/notifications/{{session('id')}}'" style="font-size:20px;"></button>
                             </li>
                             <li class="pr-4 ">
                                 <a href="{{ url('/logout') }}" class="btn btn-outline-secondary" >{{ __('logout') }}</a>

@@ -50,7 +50,6 @@
 
 
 
-
       <form action="{{route('review.store')}}" method="post" > 
     @csrf
         <div class="form-group ">
@@ -63,7 +62,11 @@
             
              
         </div>
+        @if ((session('token')))
         <button class="btn btn-primary " type="submit">Agregar Reseña</button> 
+        @else
+        <a class="btn btn-primary " href="{{url('/login')}}">Agregar Reseña</a> 
+        @endif
       </form>
 
     </div>
