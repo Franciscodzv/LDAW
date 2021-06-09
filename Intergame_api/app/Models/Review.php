@@ -50,7 +50,7 @@ class Review extends Model
         $title = Review::create([
             'title_id'=>$result['title_id'],
             'description'=>$result['description'],
-            'user_id'=>1,//rbac
+            'user_id'=>$result['user_id'],
             'date'=> Carbon::now(),
         ]);
         return $title;

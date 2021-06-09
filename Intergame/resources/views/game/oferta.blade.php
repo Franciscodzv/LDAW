@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if ((session('token')))
 <div class="container">
     <div class="col-8 offset-2">
       <div class="row">
@@ -31,7 +32,7 @@
         <input type="text"  value=" {{$game['id']}}" name="gameOwn_id"  id="gameOwn_id" hidden>
          
         <div class="card-header">
-        Condicion del juego:{{$game['condition']}} 
+        Condicion del juego:{{$game['condition']}} <br> Usuario:{{$game['user_id']}}
         </div>
         <div class="card-body">
           
@@ -54,5 +55,5 @@
       </div>
    
 </div>
-
+@endif
 @endsection

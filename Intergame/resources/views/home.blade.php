@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="jumbotron jumbotron-fluid bg-secondary">
+  <div class="container">
+    <h1 class="display-4">{{$date}}     @foreach($weather['weather'] as  $w)
+         {{  $w['description'] }}
+           @endforeach     
+           @foreach($weather['weather'] as  $w)
+        <img src="http://openweathermap.org/img/wn/{{  $w['icon'] }}.png" alt="" width="10%">
+           @endforeach   </h1>
+    <p >  <strong> Temperature:</strong> {{  $weather['main']['temp'] -273.15}}°C     <strong>Feels like:</strong> {{  $weather['main']['feels_like']-273.15 }} °C   
+           <br> <strong>Humidity:</strong>  {{  $weather['main']['humidity'] }}%  <strong>     Wind speed:</strong> {{  $weather['wind']['speed'] }} km/h </p>
+  </div>
+</div>
 <div class="container">
 @if (session('status'))
     <div class="alert alert-success">
@@ -37,4 +49,5 @@
             </div>
     </div>
 </div>
+
 @endsection

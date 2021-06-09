@@ -65,7 +65,7 @@ Route::post('/sanctum/token', function (Request $request) {
             'email' => ['The provided credentials are incorrect.'],
         ]);
     }
-
+   //return $user->createToken($request->device_name);
     return ["token" => $user->createToken($request->device_name)];
 });
 
